@@ -55,6 +55,78 @@ class Dashboard extends CI_Controller {
         }
     }
 
+    function get_chart_today()
+    {
+        $tgl = $this->input->post("tgl");
+        $jm = array();
+        $total = array();
+        for($jam=00;$jam<=23;$jam++){
+            if(strlen($jam)==1)
+            {
+                $query = $this->db->query("SELECT count(id_counter) as total_pengunjung FROM tbl_counter WHERE DATE(date_visit)='$tgl' AND DATE_FORMAT(date_visit, '%H')='0$jam'");
+                $get = $query->row();
+                $jm[] = "0$jam";
+                $total[] = $get->total_pengunjung;
+            }else{
+                $query = $this->db->query("SELECT count(id_counter) as total_pengunjung FROM tbl_counter WHERE DATE(date_visit)='$tgl' AND DATE_FORMAT(date_visit, '%H')='$jam'");
+                $get = $query->row();
+                $jm[] = "$jam";
+                $total[] = $get->total_pengunjung;
+            }
+        }
+        echo json_encode(array("jam" => $jm, "total" => $total), JSON_NUMERIC_CHECK);
+    }
+
+    function get_chart_week()
+    {
+        $tgl2 = strtotime($this->input->post("tgl1"));
+        $tgl1 = strtotime($this->input->post("tgl2"));
+        $tgl = array();
+        $total = array();
+        $m= date("m");
+        $de= date("d");
+        $y= date("Y");
+        for($i=0; $i<=6; $i++){
+            $date = date('Y-m-d',mktime(0,0,0,$m,($de-$i),$y));
+            $query = $this->db->query("SELECT count(id_counter) as total_pengunjung FROM tbl_counter WHERE DATE(date_visit)='$date'");
+            $get = $query->row();
+            $tgl[] = date('d-m-Y',mktime(0,0,0,$m,($de-$i),$y));
+            $total[] = $get->total_pengunjung;
+        }
+        echo json_encode(array("tgl" => $tgl, "total" => $total), JSON_NUMERIC_CHECK);
+    }
+
+    function get_chart_month()
+    {
+        $tgl = array();
+        $total = array();
+        $month = date("m");
+        $currentdays = intval(date("t"));
+        $i = 0;
+        while ($i++ < $currentdays){
+            $query = $this->db->query("SELECT count(id_counter) as total_pengunjung FROM tbl_counter WHERE DATE_FORMAT(date_visit, '%m')='$month' AND DATE_FORMAT(date_visit, '%e')='$i'");
+            $get = $query->row();
+            $tgl[] = $i."-".date("M");
+            $total[] = $get->total_pengunjung;
+        }
+        echo json_encode(array("tgl" => $tgl, "total" => $total), JSON_NUMERIC_CHECK);
+    }
+
+    function get_chart_all()
+    {
+        $tgl = array();
+        $total = array();
+        for($i =0; $i <= 4 ;$i++)
+        {
+            $year = date('Y') - 4 + $i;
+            $query = $this->db->query("SELECT count(id_counter) as total_pengunjung FROM tbl_counter WHERE DATE_FORMAT(date_visit, '%Y')='$year'");
+            $get = $query->row();
+            $tgl[] = $year;
+            $total[] = $get->total_pengunjung;
+        }
+        echo json_encode(array("tgl" => $tgl, "total" => $total), JSON_NUMERIC_CHECK);
+    }
+
     public function logout()
     {
         if($this->apps->apps_id())
