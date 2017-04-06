@@ -55,4 +55,16 @@ class Dashboard extends CI_Controller {
         }
     }
 
+    public function logout()
+    {
+        if($this->apps->apps_id())
+        {
+            $this->session->sess_destroy();
+            redirect('apps/login?source=logout&utf8=✓');
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
 }
