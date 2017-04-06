@@ -1,5 +1,5 @@
 // deklarasi path url host
-var url = window.location.origin+"/~maulayyacyber/perpustakaan-podoroto/apps/";
+var url = "htpp://localhost/~maulayyacyber/perpustakaan-podoroto/apps/";
 
 // Get data chart
 function GetToday(tgl)
