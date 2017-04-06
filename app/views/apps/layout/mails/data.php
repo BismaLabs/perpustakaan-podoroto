@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
             <?php echo $title ?>
-            <small>PPDB Applications</small>
+            <small>Web Applications</small>
         </h1>
     </section>
 
