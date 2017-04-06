@@ -77,7 +77,7 @@ function show_chart(text, kat, total)
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: http://www.permakes.org',
+            text: 'Source: http://www.perpustakaan.podoroto.desa.id',
             x: -20
         },
         xAxis: {

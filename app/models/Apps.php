@@ -49,6 +49,31 @@ class Apps extends CI_Model{
         }
     }
 
+       // funsi visitor
+        function count_in_today()
+        {
+            $q = $this->db->query("SELECT COUNT(id_counter) as count_in_today FROM tbl_counter WHERE DATE(date_visit) = CURDATE()");
+            return $q;
+        }
+
+        function count_in_week()
+        {
+            $q = $this->db->query("SELECT COUNT(id_counter) as count_in_week FROM tbl_counter WHERE DATE(date_visit) BETWEEN CURDATE() - INTERVAL 7 DAY AND CURDATE()");
+            return $q;
+        }
+
+        function count_in_month()
+        {
+            $q = $this->db->query("SELECT COUNT(id_counter) as count_in_month FROM tbl_counter WHERE DATE(date_visit) BETWEEN CURDATE() - INTERVAL 30 DAY AND CURDATE()");
+            return $q;
+        }
+
+        function count_in_year()
+        {
+            $q = $this->db->query("SELECT COUNT(id_counter) as count_in_year FROM tbl_counter WHERE YEAR(date_visit) = YEAR(CURDATE())");
+            return $q;
+        }
+
     /* fungsi user */
     function count_users()
     {
