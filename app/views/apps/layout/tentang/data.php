@@ -20,6 +20,9 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <p style="text-align: center">
+                            <img src="<?php echo base_url() ?>resources/images/logo.png" style="width: 150px">
+                        </p>
                         <p>
                             <b><span style="font-size: 16px">CV. Bisma Labs - Professional Web Apps Solutions</span></b>
                         </p>
