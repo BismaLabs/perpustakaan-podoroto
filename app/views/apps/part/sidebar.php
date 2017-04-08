@@ -29,8 +29,8 @@
             <li <?php if(isset($dashboard)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/dashboard/"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li <?php if(isset($warga)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/warga/"><i class="fa fa-male"></i> <span>Data Warga</span></a></li>
             <li <?php if(isset($buku)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/buku/"><i class="fa fa-book"></i> <span>Data Buku</span></a></li>
-            <li <?php if(isset($kategori_buku)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/kategori_buku/"><i class="fa fa-folder"></i> <span>Kategori Buku</span></a></li>
             <li <?php if(isset($peminjam)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/peminjam/"><i class="fa fa-calendar-check-o"></i> <span>Data Peminjam</span></a></li>
+            <li <?php if(isset($kategori_buku)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/kategori_buku/"><i class="fa fa-folder"></i> <span>Kategori Buku</span></a></li>
             <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/users/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
             <li <?php if(isset($pages)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/pages/"><i class="fa fa-television"></i> <span>Pages</span></a></li>
             <li class="header">MAIN SYSTEM</li>
