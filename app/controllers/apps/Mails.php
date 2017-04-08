@@ -21,7 +21,8 @@ class Mails extends CI_Controller{
 
             $data = array(
                 'title' => 'Setting Mail Server ',
-                'mails' => TRUE
+                'mails' => TRUE,
+                'settings' => TRUE
             );
             $this->load->view('apps/part/header', $data);
             $this->load->view('apps/part/sidebar');

@@ -21,7 +21,8 @@ class Systems extends CI_Controller{
 
             $data = array(
                 'title' => 'Setting Systems ',
-                'systems' => TRUE
+                'systems' => TRUE,
+                'settings'=> TRUE
             );
             $this->load->view('apps/part/header', $data);
             $this->load->view('apps/part/sidebar');
