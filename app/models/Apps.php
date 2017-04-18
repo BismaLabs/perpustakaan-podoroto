@@ -185,6 +185,67 @@ class Apps extends CI_Model{
                 return NULL;
             }
         }
+        
+        
+        /* fungsi kategori */
+        function count_kategori()
+        {
+            return $this->db->get('tbl_kategori');
+        }
+    
+        function index_kategori($halaman,$batas)
+        {
+            $query = "SELECT * FROM tbl_kategori  ORDER BY id_kategori DESC limit $halaman, $batas";
+            return $this->db->query($query);
+        }
+    
+        function search_kategori_json()
+        {
+            $query = $this->db->get('tbl_kategori');
+            return $query->result();
+        }
+    
+        function total_search_kategori($keyword)
+        {
+            $query = $this->db->like('nama_kategori',$keyword)->get('tbl_kategori');
+    
+            if($query->num_rows() > 0)
+            {
+                return $query->num_rows();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+    
+        public function search_index_kategori($keyword,$limit,$offset)
+        {
+            $query = $this->db->select('*')
+                ->from('tbl_kategori')
+                ->limit($limit,$offset)
+                ->like('nama_kategori',$keyword)
+                ->limit($limit,$offset)
+                ->order_by('id_kategori','DESC')
+                ->get();
+    
+            if($query->num_rows() > 0)
+            {
+                return $query;
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+    
+        function edit_kategori($id_kategori)
+        {
+            $id_kategori  =  array('id_kategori'=> $id_kategori);
+            return $this->db->get_where('tbl_kategori', $id_kategori);
+        }
+    
+        
 
     //fungsi date time
         function tgl_time_indo($date=null){

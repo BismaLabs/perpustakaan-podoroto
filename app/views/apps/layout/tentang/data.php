@@ -34,9 +34,9 @@
                             <b><span style="font-size: 16px">jika punya pertanyaan bisa hubungi kami melalui :</span></b>
                         </p>
                         <p>
-                            <i class="fa fa-envelope"></i> Alamat Email : support@bismalabs.co.id<br><br>
-                            <i class="fa fa-whatsapp"></i> SMS / WA : +62 857-3059-4359 <br>  <span style="margin-left: 80px">+62 857-0699-0927</span><br><br>
-                            <i class="fa fa-globe"></i> Website : http://bismalabs.co.id
+                            <i class="fa fa-envelope"></i> support@bismalabs.co.id<br><br>
+                            <i class="fa fa-whatsapp"></i> +62 857-3059-4359 <br>  <span style="margin-left: 16px">+62 857-0699-0927</span><br><br>
+                            <i class="fa fa-globe"></i> http://bismalabs.co.id
                         </p>
                     </div>
                     <!-- /.box-body -->
