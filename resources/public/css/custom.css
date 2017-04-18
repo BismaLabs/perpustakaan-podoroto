@@ -1,0 +1,245 @@
+.logo a img {
+  width: 232px;
+}
+
+.overlay {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:#000;
+    opacity:0.8;
+    z-index:1001;
+}
+
+/* ==Select2 [.select2-container]*/
+/* ----------------------------------------------- */
+.select2-container {
+  margin-left: 0 !important;
+  text-align: left;
+}
+.select2-container .select2-choice {
+  height: 34px;
+  line-height: 34px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-color: #ccc;
+  background: #fff !important;
+  filter: none;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.select2-container .select2-choice .select2-arrow {
+  background: none;
+  border: none;
+  top: 2px;
+  right: 5px;
+}
+.select2-container .select2-choice .select2-arrow b {
+  background-position: 1px 1px;
+}
+.select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -17px 1px;
+}
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices,
+.select2-container .select2-choice:hover {
+  border-color: #c2c2c2 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.select2-results {
+  padding: 0;
+  margin-right: 0;
+}
+.select2-search {
+  padding-top: 4px;
+}
+.select2-drop,
+.select2-drop.select2-drop-above {
+  border: 1px solid #aaa;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.select2-drop.select2-drop-above.select2-drop-active {
+  border-color: #aaa;
+  margin-top: -5px;
+}
+.select2-drop-multi.select2-drop-above {
+  margin-top: -1px !important;
+}
+.select2-container .select2-choice abbr {
+  top: 9px;
+}
+/* .select2-search-choice-close */
+.select2-container-multi .select2-choices {
+  min-height: 34px;
+  background: #fff;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.select2-container-multi .select2-choices .select2-search-field input {
+  height: 28px;
+  padding-bottom: 4px;
+}
+.select2-container-multi .select2-choices .select2-search-choice {
+  background: #f8f8f8;
+  height: 22px;
+  line-height: 14px;
+  margin: 2px 1px 1px 2px;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important;
+  padding: 3px 22px 3px 6px;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.select2-container-multi .select2-search-choice-close {
+  right: 3px;
+  top: 4px;
+  left: auto;
+}
+.select2-container-multi .select2-choices .select2-search-choice-focus {
+  background: #e1e1e1;
+}
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+  background: #fff !important;
+  border: 1px solid #dcdcdc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.select2-container .select2-choice > .select2-chosen i,
+.select2-results .select2-result-label i,
+.select2-container-multi .select2-choices .select2-search-choice i {
+  margin: -1px 6px 0 0;
+  height: 15px;
+  vertical-align: -2px;
+}
+.form-control.select2-container {
+  height: auto;
+  padding: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.wrap-berita {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 23px;     /* fallback */
+   max-height: 67px;      /* fallback */
+   min-height: 67px;
+   -webkit-line-clamp: 3; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.footer-link {
+  background: #00796B;
+  padding: 20px 0 10px;
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  clear: both;
+}
+.footer-link:before {
+  content: "";
+  display: table;
+}
+.footer-link:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.flex-caption h2 span {
+  background-color: rgba(0, 105, 92, 0.79);
+}
+
+.linkcls:hover {
+  text-decoration: none;
+}
+.content-center {
+  align-items: center;
+}
+.wi-rotate-23 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(23deg);
+  -ms-transform: rotate(23deg);
+  transform: rotate(23deg);
+}
+.wi-rotate-45 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.wi-rotate-68 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(68deg);
+  -ms-transform: rotate(68deg);
+  transform: rotate(68deg);
+}
+.wi-rotate-113 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(113deg);
+  -ms-transform: rotate(113deg);
+  transform: rotate(113deg);
+}
+.wi-rotate-135 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.wi-rotate-158 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(158deg);
+  -ms-transform: rotate(158deg);
+  transform: rotate(158deg);
+}
+.wi-rotate-203 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(203deg);
+  -ms-transform: rotate(203deg);
+  transform: rotate(203deg);
+}
+.wi-rotate-225 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.wi-rotate-248 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(248deg);
+  -ms-transform: rotate(248deg);
+  transform: rotate(248deg);
+}
+.wi-rotate-293 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(293deg);
+  -ms-transform: rotate(293deg);
+  transform: rotate(293deg);
+}
+.wi-rotate-313 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(313deg);
+  -ms-transform: rotate(313deg);
+  transform: rotate(313deg);
+}
+.wi-rotate-336 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(336deg);
+  -ms-transform: rotate(336deg);
+  transform: rotate(336deg);
+}
