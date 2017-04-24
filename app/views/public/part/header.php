@@ -59,8 +59,7 @@
                                 <li class="has-child"><a href="#">Kategori Buku</a>
                                     <ul class="sub-menu">
                                     <?php if (kategori_header() != NULL) {
-                                        foreach 
-                                    (kategori_header() as $hasil) {
+                                        foreach(kategori_header() as $hasil) {
                                         ?>
                                         <li><a href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a></li>
                                     <?php }} ?>
