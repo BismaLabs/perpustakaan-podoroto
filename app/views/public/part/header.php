@@ -53,7 +53,7 @@
                                 <li class="has-child">
                                 <a href="#">Profil</a>
                                     <ul class="sub-menu">
-                                        <li><a href="<?php echo base_url() ?>visi">Visi dan Misi</a></li>
+                                        <li><a href="<?php echo base_url() ?>page/visi_misi">Visi dan Misi</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child"><a href="#">Kategori Buku</a>
