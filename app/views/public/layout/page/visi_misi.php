@@ -1,7 +1,7 @@
 <div id="main" style="padding-top: 20px">
             <div class="container">
                 <div class="row">
-                    <div id="primary" class="content-area">
+                    <div id="primary" class="col-md-8 content-area">
                         <div id="content" class="site-content">
                         	<?php foreach ($data_page->result() as $hasil) { ?>
                             <div class="post hentry">
