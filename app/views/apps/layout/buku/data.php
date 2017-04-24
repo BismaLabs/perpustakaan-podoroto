@@ -27,7 +27,7 @@
                                 <i class="fa fa-plus-circle"></i> Tambah
                               </a>
                            </span>
-                                <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Judul Buku dan Enter" autocomplete="off" id="articles">
+                                <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Kode Buku atau Judul Buku dan Enter" autocomplete="off" id="articles">
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 <span class = "input-group-btn">
                               <button class = "btn btn-default btn-md" type = "submit">
