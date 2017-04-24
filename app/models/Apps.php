@@ -139,6 +139,11 @@ class Apps extends CI_Model{
             return $this->db->get('tbl_pages');
         }
 
+        function select_pages()
+        {
+            return $this->db->get('tbl_pages');
+        }
+
         function index_pages($halaman,$batas)
         {
             $query = "SELECT * FROM tbl_pages as a JOIN tbl_users as b ON a.user_id = b.id_user  ORDER BY judul_page ASC limit $halaman, $batas";
@@ -189,6 +194,11 @@ class Apps extends CI_Model{
         
         /* fungsi buku */
         function count_buku()
+        {
+            return $this->db->get('tbl_buku');
+        }
+
+        function select_buku()
         {
             return $this->db->get('tbl_buku');
         }

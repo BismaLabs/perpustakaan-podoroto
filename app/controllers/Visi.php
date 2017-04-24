@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Visi extends CI_Controller {
 
 	public function __construct()
 	{
@@ -19,9 +19,9 @@ class Home extends CI_Controller {
 			'data_kategori'=> $this->apps->select_kategori(),
 			'data_page'=> $this->apps->select_pages()
 			);
+
 		$this->load->view('public/part/header', $data);
-        $this->load->view('public/part/slider');
-        $this->load->view('public/layout/home/data');
+        $this->load->view('public/layout/page/visi_misi');
         $this->load->view('public/part/footer');
 		}else{
 			show_404();

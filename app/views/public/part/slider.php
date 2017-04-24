@@ -42,7 +42,7 @@
                 <h3><i class="fa fa-fw fa-map-marker"></i> Alamat</h3>
             </div>
             <div class="content-box" id="slideralamat">
-                <p>Jl. Raya Tambahrejo RT/RW 006/003 No.1 KM 34, Kec. Gadingrejo, Kab. Pringsewu 35372.</p>
+                <p>Jl. Raya Pasar Garu No.1 Kec. Kesamben, Kab. Jombang 61484.</p>
             </div>
         </div>
 

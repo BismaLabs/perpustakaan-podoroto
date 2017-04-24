@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="icon" href=""/>
-    <title>Perpustakaan Desa Podoroto, Samben, Jombang, Jawa Timur</title>
+    <title><?php echo $title ?></title>
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>resources/public/css/rajdhani.css" rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url() ?>resources/public/css/opensans.css" rel='stylesheet' type='text/css'>
@@ -42,32 +42,26 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="logo navbar-brand">
-                        <a href="<?php echo base_url() ?>"><img src="upload/image/tambahrejo2.png" alt=""
-                                                                title="Website Desa"></a>
+                        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>resources/public/images/perpus-logo.png" title="Perpustakaan Desa Podoroto"> 
+                        </a>
                     </div>
 
                     <nav id="primary-navigation" class="site-navigation navbar-collapse collapse" role="navigation">
                         <div class="nav-menu">
                             <ul class="menu">
                                 <li><a href='<?php echo base_url() ?>'>Home</a></li>
-                                <li class="has-child"><a href="#">Profil</a>
+                                <li class="has-child">
+                                <a href="#">Profil</a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Sejarah Pekon</a></li>
-                                        <li><a href="#">Visi & Misi</a></li>
-                                        <li><a href="#">Staff</a></li>
-                                        <li><a href="#">BHP</a></li>
-                                        <li><a href="#">RT/DUSUN</a></li>
-                                        <li><a href="#">PKK</a></li>
-                                        <li><a href="#">Karang Taruna</a></li>
+                                        <li><a href="<?php echo base_url() ?>visi">Visi dan Misi</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child"><a href="#">Kategori Buku</a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Peraturan Pemerintah</a></li>
-                                        <li><a href="#">LPM</a></li>
-                                        <li><a href="#">Perizinan</a></li>
-                                        <li><a href="#">Kependudukan</a></li>
-                                        <li><a href="#">Surat Menyurat</a></li>
+                                    <?php foreach ($data_kategori-> result_array() as $kategori) {
+                                        ?>
+                                        <li><a href="#"><?php echo $kategori['nama_kategori']; ?></a></li>
+                                    <?php } ?>
                                     </ul>
                                 </li>
                                 <li><a href="Berita.html">Populer</a></li>

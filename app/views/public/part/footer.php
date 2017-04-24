@@ -5,10 +5,9 @@
                 <div class="widget">
                     <div class="widget-inner">
                         <div class="widget-title-outer">
-                            <h3 class="widget-title">Tentang Desa</h3>
+                            <h3 class="widget-title">Tentang Perpustakaan</h3>
                         </div>
-                        <p id="tentang">Tambahrejo dibuka dan berdiri pada tahun 1912 oleh transmigrasi dari daerah Purworejo Jawa Tengah, yang merupakan transmigrasi kolonial belanda...</p>
-                        <!-- <p><a href="#" class="more">Selengkapnya</a></p> -->
+                        <p id="tentang">Perpsutakaan Online adalah sebuah media perpustakaan yang dikelola secara online untuk berbagai alternatif bahan bacaan bagi mereka yang intens dengan internet.</p>
                     </div><!-- end inner -->
                 </div><!-- end widget -->
             </div>
@@ -23,7 +22,7 @@
                             <tr>
                                 <td style='padding: 0 5px;'><strong>Lokasi</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
-                                <td id='alamatlengkap' style='padding: 0 5px;'>Jl. Raya Tambahrejo RT/RW 006/003 No.1 KM 34,  Kec. Gadingrejo, Kab. Pringsewu 35372.</td>
+                                <td id='alamatlengkap' style='padding: 0 5px;'>Jl. Raya Pasar Garu No.1 Kec. Kesamben, Kab. Jombang 61484.</td>
                             </tr>
                             <tr>
                                 <td style='padding: 0 5px;'><strong>Telp</strong></td>
