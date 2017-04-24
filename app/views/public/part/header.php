@@ -53,15 +53,17 @@
                                 <li class="has-child">
                                 <a href="#">Profil</a>
                                     <ul class="sub-menu">
-                                        <li><a href="<?php echo base_url() ?>page/visi_misi">Visi dan Misi</a></li>
+                                        <li><a href="<?php echo base_url() ?>page/visi_misi/">Visi dan Misi</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child"><a href="#">Kategori Buku</a>
                                     <ul class="sub-menu">
-                                    <?php foreach ($data_kategori-> result_array() as $kategori) {
+                                    <?php if (kategori_header() != NULL) {
+                                        foreach 
+                                    (kategori_header() as $hasil) {
                                         ?>
-                                        <li><a href="#"><?php echo $kategori['nama_kategori']; ?></a></li>
-                                    <?php } ?>
+                                        <li><a href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a></li>
+                                    <?php }} ?>
                                     </ul>
                                 </li>
                                 <li><a href="Berita.html">Populer</a></li>
