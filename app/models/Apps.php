@@ -187,27 +187,27 @@ class Apps extends CI_Model{
         }
         
         
-        /* fungsi kategori */
-        function count_kategori()
+        /* fungsi buku */
+        function count_buku()
         {
-            return $this->db->get('tbl_kategori');
+            return $this->db->get('tbl_buku');
         }
     
-        function index_kategori($halaman,$batas)
+        function index_buku($halaman,$batas)
         {
-            $query = "SELECT * FROM tbl_kategori  ORDER BY id_kategori DESC limit $halaman, $batas";
+            $query = "SELECT * FROM tbl_buku as a JOIN tbl_kategori as b ON a.kategori_id = b.id_kategori ORDER BY a.kode_buku DESC limit $halaman, $batas";
             return $this->db->query($query);
         }
     
-        function search_kategori_json()
+        function search_buku_json()
         {
-            $query = $this->db->get('tbl_kategori');
+            $query = $this->db->get('tbl_buku');
             return $query->result();
         }
     
-        function total_search_kategori($keyword)
+        function total_search_buku($keyword)
         {
-            $query = $this->db->like('nama_kategori',$keyword)->get('tbl_kategori');
+            $query = $this->db->like('judul_buku',$keyword)->get('tbl_buku');
     
             if($query->num_rows() > 0)
             {
@@ -219,14 +219,15 @@ class Apps extends CI_Model{
             }
         }
     
-        public function search_index_kategori($keyword,$limit,$offset)
+        public function search_index_buku($keyword,$limit,$offset)
         {
             $query = $this->db->select('*')
-                ->from('tbl_kategori')
+                ->from('tbl_kategori a')
+                ->join('tbl_kategori b','a.kategori_id = b.id_kategori')
                 ->limit($limit,$offset)
-                ->like('nama_kategori',$keyword)
+                ->like('a.judul_buku',$keyword)
                 ->limit($limit,$offset)
-                ->order_by('id_kategori','DESC')
+                ->order_by('a.kode_buku','DESC')
                 ->get();
     
             if($query->num_rows() > 0)
@@ -239,11 +240,69 @@ class Apps extends CI_Model{
             }
         }
     
-        function edit_kategori($id_kategori)
+        function edit_buku($kode_buku)
         {
-            $id_kategori  =  array('id_kategori'=> $id_kategori);
-            return $this->db->get_where('tbl_kategori', $id_kategori);
+            $kode_buku  =  array('kode_buku'=> $kode_buku);
+            return $this->db->get_where('tbl_buku', $kode_buku);
         }
+
+            /* fungsi kategori */
+            function count_kategori()
+            {
+                return $this->db->get('tbl_kategori');
+            }
+
+            function index_kategori($halaman,$batas)
+            {
+                $query = "SELECT * FROM tbl_kategori  ORDER BY id_kategori DESC limit $halaman, $batas";
+                return $this->db->query($query);
+            }
+
+            function search_kategori_json()
+            {
+                $query = $this->db->get('tbl_kategori');
+                return $query->result();
+            }
+
+            function total_search_kategori($keyword)
+            {
+                $query = $this->db->like('nama_kategori',$keyword)->get('tbl_kategori');
+
+                if($query->num_rows() > 0)
+                {
+                    return $query->num_rows();
+                }
+                else
+                {
+                    return NULL;
+                }
+            }
+
+            public function search_index_kategori($keyword,$limit,$offset)
+            {
+                $query = $this->db->select('*')
+                    ->from('tbl_kategori')
+                    ->limit($limit,$offset)
+                    ->like('nama_kategori',$keyword)
+                    ->limit($limit,$offset)
+                    ->order_by('id_kategori','DESC')
+                    ->get();
+
+                if($query->num_rows() > 0)
+                {
+                    return $query;
+                }
+                else
+                {
+                    return NULL;
+                }
+            }
+
+            function edit_kategori($id_kategori)
+            {
+                $id_kategori  =  array('id_kategori'=> $id_kategori);
+                return $this->db->get_where('tbl_kategori', $id_kategori);
+            }
     
         
 

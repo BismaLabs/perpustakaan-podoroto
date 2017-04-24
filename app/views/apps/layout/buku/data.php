@@ -16,18 +16,18 @@
                 <?php echo $this->session->flashdata('notif') ?>
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-folder"></i> Data Kategori</h3>
+                        <h3 class="box-title"><i class="fa fa-book"></i> Data Buku</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form method="GET" action="<?php echo base_url('apps/kategori/search');?>" style="margin-top: 10px">
+                        <form method="GET" action="<?php echo base_url('apps/buku/search');?>" style="margin-top: 10px">
                             <div class = "input-group">
                            <span class = "input-group-btn">
-                              <a href="<?php echo base_url('apps/kategori/add?source=add&utf8=✓') ?>" class = "btn btn-default btn-md" type = "button">
+                              <a href="<?php echo base_url('apps/buku/add?source=add&utf8=✓') ?>" class = "btn btn-default btn-md" type = "button">
                                 <i class="fa fa-plus-circle"></i> Tambah
                               </a>
                            </span>
-                                <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Nama Kategori dan Enter" autocomplete="off" id="articles">
+                                <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Judul Buku dan Enter" autocomplete="off" id="articles">
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 <span class = "input-group-btn">
                               <button class = "btn btn-default btn-md" type = "submit">
@@ -41,22 +41,28 @@
                                 <tbody>
                                 <thead>
                                 <tr>
-                                    <th class="text-center" style="color: #000;">No.</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-folder"></i> NAMA KATEGORI</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-calendar-o"></i> UPDATED AT</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-barcode"></i> KODE BUKU</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-list-ul"></i> JUDUL BUKU</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-folder"></i> KATEGORI</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-user-o"></i> PENERBIT</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-calendar-o"></i> THN TERBIT</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-list-ol"></i> JUMLAH BUKU</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
                                 </thead>
                                 <?php
-                                if($kategori != NULL):
+                                if($buku != NULL):
                                 $no = $this->uri->segment(4) + 1;
-                                foreach($kategori->result() as $hasil):
+                                foreach($buku->result() as $hasil):
 
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
-                                        <td><?php echo $hasil->nama_kategori ?></td>
-                                        <td> <?php echo $this->apps->tgl_jam_indo_no_hari($hasil->updated_at) ?></td>
+                                        <td><?php echo $hasil->kode_buku ?></td>
+                                        <td> <?php echo $this->judul_buku ?></td>
+                                        <td> <?php echo $this->nama_kategori ?></td>
+                                        <td> <?php echo $this->penerbit ?></td>
+                                        <td> <?php echo $this->tahun_terbit ?></td>
                                         <td class="text-center">
                                             <a class="badge badge-success" style="background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url() ?>apps/kategori/edit/<?php echo $this->encryption->encode($hasil->id_kategori) ?>"><i class="fa fa-pencil"></i> Edit</a>
                                         </td>

@@ -30,7 +30,7 @@ class Kategori extends CI_Controller
             $halaman = $halaman == '' ? 0 : $halaman;
             //create data array
             $data = array(
-                'title' => 'kategori',
+                'title' => 'kategori Buku',
                 'kategori' => TRUE,
                 'data_kategori' => $this->apps->index_kategori($halaman, $config['per_page']),
                 'paging' => $this->pagination->create_links()
@@ -79,7 +79,7 @@ class Kategori extends CI_Controller
                 $this->pagination->initialize($config);
 
                 $data = array(
-                    'title' => 'kategori',
+                    'title' => 'kategori Buku',
                     'kategori' => TRUE,
                     'data_kategori' => $this->apps->search_index_kategori(strip_tags($keyword), $limit, $offset),
                     'paging' => $this->pagination->create_links()

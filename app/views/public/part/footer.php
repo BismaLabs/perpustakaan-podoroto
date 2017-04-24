@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="text-center copy">
-                    <a target='_blank' href='http://indonesia.go.id/'>Portal Indonesia</a> | <a target='_blank' href='http://lampungprov.go.id/'>Provinsi Lampung</a> | <a target='_blank' href='http://pringsewukab.go.id/'>Kabupaten Pringsewu</a> </p>
+                    <a target='_blank' href='#'> Desa Podoroto</a> | <a target='_blank' href='#'>Kabupaten Jombang</a> | <a target='_blank' href='#'>Provisnsi Jawa Timur</a> </p>
             </div><!-- end column -->
         </div><!-- end row -->
     </div><!-- end container -->
@@ -99,7 +99,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p class="copy">COPYRIGHT &copy; 2016 <a href="#" class="namadesa">Pekon Tambahrejo</a> by <a target="_blank" href="http://darmajaya.ac.id/">DJCorp</a> | <a target="_blank" href="http://coresystem.co.id/">CSI</a></p>
+                <p class="copy">COPYRIGHT &copy; 2016 <a href="<?php echo base_url() ?>" class="namadesa">Perpustakaan Desa Podoroto</a> Maintenance By  <a target="_blank" href="http://bismalabs.co.id/">Bisma Labs</a></p>
             </div><!-- end column -->
             <div class="col-md-6">
                 <ul class="list-socmed">

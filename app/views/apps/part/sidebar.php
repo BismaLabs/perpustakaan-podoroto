@@ -25,15 +25,17 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">MAIN MENU</li>
             <li <?php if(isset($dashboard)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/dashboard/"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li <?php if(isset($warga)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/warga/"><i class="fa fa-male"></i> <span>Data Warga</span></a></li>
             <li <?php if(isset($buku)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/buku/"><i class="fa fa-book"></i> <span>Data Buku</span></a></li>
             <li <?php if(isset($peminjam)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/peminjam/"><i class="fa fa-calendar-check-o"></i> <span>Data Peminjam</span></a></li>
             <li <?php if(isset($kategori)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/kategori/"><i class="fa fa-folder"></i> <span>Kategori Buku</span></a></li>
+            <li <?php if(isset($laporan)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/laporan/"><i class="fa fa-print"></i> <span>Cetak Laporan</span></a></li>
+            <li class="header">MAIN SYSTEM</li>
             <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/users/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
             <li <?php if(isset($pages)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/pages/"><i class="fa fa-television"></i> <span>Pages</span></a></li>
-            <li class="header">MAIN SYSTEM</li>
+            <li class="header">MAIN SETTING</li>
             <li <?php if(isset($settings)) { echo 'class="active treeview"'; } ?>>
                 <a href="#">
                     <i class="fa fa-cogs"></i> <span>Settings</span>
