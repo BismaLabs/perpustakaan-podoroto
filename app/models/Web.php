@@ -20,4 +20,19 @@ class Web extends CI_Model{
         $query = $this->db->query("SELECT * FROM tbl_pages WHERE id_page = '$id_pages'");
         return $query;
     }
+
+
+    function select_buku()
+    {
+    $this->db->order_by('kode_buku DESC');
+    return $this->db->get('tbl_buku');
+    }
+
+    function select_kategori()
+    {
+    $this->db->order_by('nama_kategori ASC');
+    return $this->db->get('tbl_kategori');
+    }
+
+    
 }
