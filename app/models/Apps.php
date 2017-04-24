@@ -222,7 +222,7 @@ class Apps extends CI_Model{
         public function search_index_buku($keyword,$limit,$offset)
         {
             $query = $this->db->select('*')
-                ->from('tbl_kategori a')
+                ->from('tbl_buku a')
                 ->join('tbl_kategori b','a.kategori_id = b.id_kategori')
                 ->limit($limit,$offset)
                 ->like('a.judul_buku',$keyword)
@@ -245,6 +245,12 @@ class Apps extends CI_Model{
             $kode_buku  =  array('kode_buku'=> $kode_buku);
             return $this->db->get_where('tbl_buku', $kode_buku);
         }
+
+         function select_kategori()
+         {
+            $this->db->order_by('nama_kategori ASC');
+            return $this->db->get('tbl_kategori');
+         }
 
             /* fungsi kategori */
             function count_kategori()

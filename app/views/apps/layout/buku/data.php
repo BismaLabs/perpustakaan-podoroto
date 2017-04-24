@@ -41,12 +41,11 @@
                                 <tbody>
                                 <thead>
                                 <tr>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-list-ul"></i> NO.</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-barcode"></i> KODE BUKU</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-list-ul"></i> JUDUL BUKU</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-book"></i> JUDUL BUKU</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-folder"></i> KATEGORI</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-user-o"></i> PENERBIT</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-calendar-o"></i> THN TERBIT</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-list-ol"></i> JUMLAH BUKU</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-database"></i> JUMLAH BUKU</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
                                 </thead>
@@ -59,12 +58,13 @@
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td><?php echo $hasil->kode_buku ?></td>
-                                        <td> <?php echo $this->judul_buku ?></td>
-                                        <td> <?php echo $this->nama_kategori ?></td>
-                                        <td> <?php echo $this->penerbit ?></td>
-                                        <td> <?php echo $this->tahun_terbit ?></td>
+                                        <td> <?php echo $hasil->judul_buku ?></td>
+                                        <td> <?php echo $hasil->nama_kategori ?></td>
+                                        <td> <?php echo $hasil->jumlah_buku ?></td>
                                         <td class="text-center">
-                                            <a class="badge badge-success" style="background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url() ?>apps/kategori/edit/<?php echo $this->encryption->encode($hasil->id_kategori) ?>"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a class="badge badge-primary" style="background-color: #060884;" data-toggle="tooltip" data-placement="top" title="Lihat Detail" href="<?php echo base_url() ?>apps/buku/detail/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"><i class="fa fa-external-link"></i> Detail</a>
+                                            <a class="badge badge-success" style="background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url() ?>apps/buku/edit/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a class="badge badge-danger" style="background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="<?php echo base_url() ?>apps/buku/delete/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <?php
@@ -81,7 +81,7 @@
                                     Maaf!....data tidak ada didatabase sistem
                                 </div>
                                 <div class="reload" style="text-align: center;margin-bottom: 7px">
-                                    <a  href="<?php echo base_url('apps/kategori?source=reload&utf8=✓') ?>" class="btn btn-danger btn-reset btn-fill" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Reloading..."><i class="fa fa-repeat"></i> Reload Page</a>
+                                    <a  href="<?php echo base_url('apps/buku?source=reload&utf8=✓') ?>" class="btn btn-danger btn-reset btn-fill" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Reloading..."><i class="fa fa-repeat"></i> Reload Page</a>
                                 </div>
                             <?php endif; ?>
                         </div>
