@@ -12,7 +12,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="box box-solid">
+                <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title"><i class="fa fa-book"></i> Edit Buku</h3>
                     </div>
@@ -80,9 +80,13 @@
                                 <label>Jumlah Buku</label>
                                 <input type="number" class="form-control" value="<?php echo $data_buku['jumlah_buku'] ?>" name="jumlah_buku" placeholder="Jumlah Buku">
                             </div>
+                            <div class="form-group">
+                                <label for="artilces">Deskripsi Buku</label>
+                                <textarea class="ckeditor" id="post" name="deskripsi" rows="4" placeholder="Masukkan Deskripsi Buku"><?php echo $data_buku['deskripsi'] ?></textarea>
+                            </div>
                             <div class="submit" style="margin-bottom: 7px">
-                                <button type="submit" class="btn btn-success btn-save btn-fill"><i class="fa fa-save"></i> Simpan</button>
-                                <button type="reset" class="btn btn-warning btn-reset btn-fill"><i class="fa fa-repeat"></i> Reset</button>
+                                <button type="submit" class="btn  bg-olive btn-flat btn-save btn-fill"><i class="fa fa-save"></i> Update</button>
+                                <button type="reset" class="btn bg-orange btn-flat btn-fill"><i class="fa fa-repeat"></i> Reset</button>
                             </div>
                             <?php echo form_close(); ?>
                         </div>

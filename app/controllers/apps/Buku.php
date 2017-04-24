@@ -151,6 +151,31 @@ class Buku extends CI_Controller
         }
     }
 
+    public function detail($kode_buku)
+    {
+        if($this->apps->apps_id())
+        {
+            //get id
+            $kode_buku = $this->encryption->decode($this->uri->segment(4));
+            //create data array
+            $data = array(
+                'title'          => 'Detail Buku',
+                'buku'           => TRUE,
+                'type'           => 'edit',
+                'data_buku'      => $this->apps->edit_buku($kode_buku)->row_array(),
+                'select_kat'     => $this->apps->select_kategori()
+            );
+            //load view with data
+            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/sidebar');
+            $this->load->view('apps/layout/buku/detail');
+            $this->load->view('apps/part/footer');
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
     public function save()
     {
         if($this->apps->apps_id())
@@ -226,6 +251,8 @@ class Buku extends CI_Controller
                         $insert = array(
                             'kode_buku'         => $kode_buku,
                             'judul_buku'        => $this->input->post("judul_buku"),
+                            'slug'              => url_title(strtolower($this->input->post("judul_buku"))),
+                            'deskripsi'         => $this->input->post("deskripsi"),
                             'kategori_id'       => $this->input->post("kategori_buku"),
                             'pengarang'         => $this->input->post("pengarang"),
                             'penerbit'          => $this->input->post("penerbit"),
@@ -256,6 +283,8 @@ class Buku extends CI_Controller
                     //create update array
                     $update = array(
                         'judul_buku'        => $this->input->post("judul_buku"),
+                        'slug'              => url_title(strtolower($this->input->post("judul_buku"))),
+                        'deskripsi'         => $this->input->post("deskripsi"),
                         'kategori_id'       => $this->input->post("kategori_buku"),
                         'pengarang'         => $this->input->post("pengarang"),
                         'penerbit'          => $this->input->post("penerbit"),
@@ -333,6 +362,8 @@ class Buku extends CI_Controller
 
                         $update = array(
                             'judul_buku'        => $this->input->post("judul_buku"),
+                            'slug'              => url_title(strtolower($this->input->post("judul_buku"))),
+                            'deskripsi'         => $this->input->post("deskripsi"),
                             'kategori_id'       => $this->input->post("kategori_buku"),
                             'pengarang'         => $this->input->post("pengarang"),
                             'penerbit'          => $this->input->post("penerbit"),

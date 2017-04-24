@@ -58,7 +58,7 @@
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td><?php echo $hasil->kode_buku ?></td>
-                                        <td> <?php echo $hasil->judul_buku ?></td>
+                                        <td style="text-transform: uppercase"> <?php echo $hasil->judul_buku ?></td>
                                         <td> <?php echo $hasil->nama_kategori ?></td>
                                         <td> <?php echo $hasil->jumlah_buku ?></td>
                                         <td class="text-center">
