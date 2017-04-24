@@ -207,7 +207,7 @@ class Apps extends CI_Model{
     
         function total_search_buku($keyword)
         {
-            $query = $this->db->like('judul_buku',$keyword)->get('tbl_buku');
+            $query = $this->db->like('judul_buku',$keyword)->or_like('kode_buku', $keyword)->get('tbl_buku');
     
             if($query->num_rows() > 0)
             {
@@ -226,6 +226,7 @@ class Apps extends CI_Model{
                 ->join('tbl_kategori b','a.kategori_id = b.id_kategori')
                 ->limit($limit,$offset)
                 ->like('a.judul_buku',$keyword)
+                ->or_like('a.kode_buku',$keyword)
                 ->limit($limit,$offset)
                 ->order_by('a.kode_buku','DESC')
                 ->get();
