@@ -18,7 +18,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="add-user">
+                        <div class="edit-buku">
                             <?php
                             $attributes = array('id' => 'frm_login');
                             echo form_open_multipart('apps/buku/save?source=header&utf8=✓', $attributes)
@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Judul Buku</label>
-                                <input type="text" class="form-control" name="judul_buku" placeholder="Judul Buku">
+                                <input type="text" class="form-control" value="<?php echo $data_buku['judul_buku'] ?>" name="judul_buku" placeholder="Judul Buku">
                             </div>
                             <div class="form-group">
                                 <label>Kategori Buku</label>
@@ -62,11 +62,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Pengarang</label>
-                                <input type="text" class="form-control" value="<?php echo $data_buku['judul_buku'] ?>" name="pengarang" placeholder="Pengarang">
+                                <input type="text" class="form-control" value="<?php echo $data_buku['pengarang'] ?>" name="pengarang" placeholder="Pengarang">
                             </div>
                             <div class="form-group">
                                 <label>Penerbit</label>
-                                <input type="text" class="form-control" value="<?php echo $data_buku['peberbit'] ?>" name="penerbit" placeholder="Penerbit">
+                                <input type="text" class="form-control" value="<?php echo $data_buku['penerbit'] ?>" name="penerbit" placeholder="Penerbit">
                             </div>
                             <div class="form-group">
                                 <label>Tahun Terbit</label>
