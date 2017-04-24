@@ -192,13 +192,6 @@ class Apps extends CI_Model{
         {
             return $this->db->get('tbl_buku');
         }
-
-        function select_buku()
-        {
-            $this->db->order_by('kode_buku DESC');
-            return $this->db->get('tbl_buku');
-        }
-    
         function index_buku($halaman,$batas)
         {
             $query = "SELECT * FROM tbl_buku as a JOIN tbl_kategori as b ON a.kategori_id = b.id_kategori ORDER BY a.kode_buku DESC limit $halaman, $batas";
@@ -252,13 +245,6 @@ class Apps extends CI_Model{
             $kode_buku  =  array('kode_buku'=> $kode_buku);
             return $this->db->get_where('tbl_buku', $kode_buku);
         }
-
-         function select_kategori()
-         {
-            $this->db->order_by('nama_kategori ASC');
-            return $this->db->get('tbl_kategori');
-         }
-
             /* fungsi kategori */
             function count_kategori()
             {
