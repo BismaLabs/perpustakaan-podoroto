@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 		$data = array('title' => 'Perpustakaan Desa Podoroto, Kesamben, Jombang, Jawa Timur',
 			'data_buku'=> $this->apps->select_buku(),
 			'data_kategori'=> $this->apps->select_kategori(),
-			'data_page'=> $this->apps->select_pages()
+			'data_page'=> $this->web->select_pages()
 			);
 		$this->load->view('public/part/header', $data);
         $this->load->view('public/part/slider');
