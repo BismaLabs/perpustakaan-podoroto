@@ -1,28 +1,25 @@
 <div id="main" style="padding-top: 20px">
             <div class="container">
                 <div class="row">
-                    <div id="primary" class="col-md-8 content-area">
+                    <div id="primary" class="widget content-area">
                         <div id="content" class="site-content">
-                        	<?php foreach ($data_page->result() as $hasil) { ?>
-                            <div class="post hentry">
-                                <div class="inner">
-                                    <h1 class="entry-title">
-                                        <a href="#"><?php echo $hasil->judul_page ?></a>
-                                    </h1>
-                                    <div class="entry-content">
-                                    <p><?php echo $hasil->isi_page ?>
-                                    </p>                                    
-                                    </div><!-- end entry-content -->
-                                </div><!-- end inner -->
-                            </div><!-- end format-image hentry -->
-                            <?php } ?>
+                        <?php foreach ($data_page->result() as $hasil) { ?>
+                            <div class="service-page">
+                                <h1 class="entry-title">
+                                    <a href="#"><?php echo $hasil->judul_page ?></a>
+                                </h1>
+                                <div class="entry-content">
+                                <p>
+                                   <?php echo $hasil->isi_page ?>
+                                </p>       
+                                </div><!-- end entry-content -->
+
+                            </div><!-- end service page -->
 
                         </div><!-- end #content -->
-                        
-                    </div><!-- end #primary -->
-
+                         <?php } ?>
+                    </div>
                     <div id="secondary" class="col-md-4">
-
                         <div id="search-2" class="widget widget_search">
                             <div class="widget-title-outer">
                                 <h3 class="widget-title">Cari Buku</h3>
@@ -48,7 +45,7 @@
                                 </ul>
                             </div><!-- end widget -->
                     </div><!-- end #secondary -->
-
                 </div><!-- end row -->
             </div><!-- end container -->
         </div>
+
