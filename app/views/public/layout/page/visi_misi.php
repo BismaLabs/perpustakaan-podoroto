@@ -1,7 +1,7 @@
 <div id="main" style="padding-top: 20px">
             <div class="container">
                 <div class="row">
-                    <div id="primary" class="widget content-area">
+                    <div id="primary" class="widget content-area" style="background-color: white;box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
                         <div id="content" class="site-content">
                         <?php foreach ($data_page->result() as $hasil) { ?>
                             <div class="service-page">

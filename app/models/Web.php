@@ -21,7 +21,6 @@ class Web extends CI_Model{
         return $query;
     }
 
-
     function select_buku()
     {
     $this->db->order_by('kode_buku DESC');
@@ -34,5 +33,16 @@ class Web extends CI_Model{
     return $this->db->get('tbl_kategori');
     }
 
+    function detail_buku($url)
+    {
+        $query = $this->db->query("SELECT * FROM tbl_buku WHERE slug = '$url'");
+         if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
     
 }

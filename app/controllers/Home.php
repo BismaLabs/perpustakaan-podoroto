@@ -17,6 +17,7 @@ class Home extends CI_Controller
             'data_buku'     => $this->web->select_buku(),
             'data_kategori' => $this->web->select_kategori()
         );
+        
         $this->load->view('public/part/header', $data);
         $this->load->view('public/part/slider');
         $this->load->view('public/layout/home/data');
