@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Halaman yang Anda cari tidak ada (404) - PPDB - Madrasah Mu'allimin Mu'allimat Bahrul Ulum, Tambak Beras, Jombang</title>
+    <title>Halaman yang Anda cari tidak ada (404)</title>
     <link rel="icon" href="">
     <style>
 
