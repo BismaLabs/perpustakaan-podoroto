@@ -47,14 +47,9 @@ class Web extends CI_Model{
 
     function detail_kategori($url)
     {
-         $query = $this->db->query("SELECT * FROM tbl_buku WHERE kategori_id = '$url'");
-         if($query->num_rows() > 0)
-        {
-            return $query->row();
-        }else
-        {
-            return NULL;
-        }
+        $query  = "SELECT * FROM tbl_kategri ORDER  BY nama_category ASC";
+        $result = $this->db->query($query)->result();
+        return $result;
     }
     
 }
