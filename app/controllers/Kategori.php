@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buku extends CI_Controller {
+class Kategori extends CI_Controller {
 
 	public function __construct()
 	{
@@ -12,13 +12,14 @@ class Buku extends CI_Controller {
 
 	public function detail($url)
 	{
-		$data = array('title' => 'Perpustakaan Desa Podoroto, Kesamben, Jombang, Jawa Timur',
+		$data = array(
+			'title' => 'Perpustakaan Desa Podoroto, Kesamben, Jombang, Jawa Timur',
 			'data_buku'=> $this->web->select_buku(),
 			'data_kategori'=> $this->web->select_kategori(),
-			'data_buku' => $this->web->detail_buku($url),
+			'kategori_buku' => $this->web->detail_kategori($url),
 			);
 		$this->load->view('public/part/header', $data);
-        $this->load->view('public/layout/home/detail');
+        $this->load->view('public/layout/kategori/data');
         $this->load->view('public/part/footer');
 	}
 }

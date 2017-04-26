@@ -27,14 +27,14 @@
                                         <strong><i class="fa fa-folder margin-r-5"></i> KATEGORI</strong>
                                         <p class="text-muted">
                                             <?php
-                                           $data_buku->kategori_id
+                                                $data_buku->kategori_id
                                             ?>
                                         </p>
                                         <hr>
                                         <strong><i class="fa fa-pencil margin-r-5"></i> PENGARANG</strong>
                                         <p class="text-muted"><?php echo $data_buku->pengarang ?></p>
                                         <hr>
-                                        <strong><i class="fa fa-user-circle-o margin-r-5"></i> PENERBIT</strong>
+                                        <strong><i class="fa fa-user margin-r-5"></i> PENERBIT</strong>
                                         <p class="text-muted"><?php echo $data_buku->penerbit ?></p>
                                         <hr>
                                     </div>
@@ -85,8 +85,10 @@
                                 <ul>
                                 <?php foreach($data_kategori->result() as $hasil){ ?>
                                     <li>
-                                        <a class="pull-left" href="#"><?php echo $hasil->nama_kategori ?></a>
-                                        <span class="pull-right"></span>
+                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a>
+
+                                        <span class="pull-right"> <?php echo $this->db->where("kategori_id", $data_buku->kategori_id)->count_all_results("tbl_buku") ?></span>
+                                        
                                     </li>
                                     <?php } ?>
                                 </ul>

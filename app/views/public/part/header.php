@@ -60,9 +60,9 @@
                                     <?php if (kategori_header() != NULL) {
                                         foreach(kategori_header() as $hasil) {
                                         ?>
-                                        <li><a href="<?php echo base_url() ?>buku/detail_kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a></li>
+                                        <li><a href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a></li>
                                     <?php }} ?>
-                                    <li><a href="<?php echo base_url() ?>buku/detail_kategori/"> Lainnya..</a></li>
+                                    <li><a href="<?php echo base_url() ?>kategori/"> Lainnya..</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="Berita.html">Populer</a></li>
