@@ -14,10 +14,11 @@ Class Kategori extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-            'title'        => 'Category &middot; ' .systems('site_title'),
-            'keywords'     => systems('keywords'),
-            'descriptions' => systems('descriptions'),
-            'author'       => systems('site_title')
+            'title'        	=> 'Category &middot; ' .systems('site_title'),
+            'keywords'     	=> systems('keywords'),
+            'descriptions' 	=> systems('descriptions'),
+            'author'       	=> systems('site_title'),
+            'data_kategori'	=> $this->web->select_kategori()
         );
 
 		$this->load->view('public/part/header', $data);

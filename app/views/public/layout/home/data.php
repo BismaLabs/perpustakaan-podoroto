@@ -18,9 +18,7 @@
                 $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/" title="'.$buku['judul_buku'].'">
                             '. substr($buku['judul_buku'], 0, 45).'....
                           </a>';
-
             }
-
             ?>
             <div class="col-md-3">
                 <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $buku['foto']; ?>" alt="" style="object-fit: cover; width:262px; height:auto;">
