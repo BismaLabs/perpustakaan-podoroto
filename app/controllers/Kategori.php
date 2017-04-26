@@ -1,22 +1,38 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kategori extends CI_Controller {
+Class Kategori extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 		//panggil model
 		$this->load->model(array('apps','web'));
+		 $this->load->helper('systems');
+	}
+
+	public function index()
+	{
+		$data = array(
+            'title'        => 'Category &middot; ' .systems('site_title'),
+            'keywords'     => systems('keywords'),
+            'descriptions' => systems('descriptions'),
+            'author'       => systems('site_title')
+        );
+
+		$this->load->view('public/part/header', $data);
+        $this->load->view('public/layout/kategori/data');
+        $this->load->view('public/part/footer');
 	}
 
 	public function detail($url)
 	{
 		$data = array(
-			'title' => 'Perpustakaan Desa Podoroto, Kesamben, Jombang, Jawa Timur',
-			'data_buku'=> $this->web->select_buku(),
-			'data_kategori'=> $this->web->select_kategori(),
-			'kategori_buku' => $this->web->detail_kategori($url),
+			'title' 		=> $this->web->detail_buku($url)->nama_kategori .' - '. systems('site_title'),
+			'data_kategori'	=> $this->web->select_kategori(),
+			'data_buku' 	=> $this->web->detail_buku($url),
+			'keywords'      => systems('keywords'),
+            'descriptions'  => systems('descriptions'),
 			);
 		$this->load->view('public/part/header', $data);
         $this->load->view('public/layout/kategori/data');

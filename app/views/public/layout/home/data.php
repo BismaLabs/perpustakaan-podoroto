@@ -3,7 +3,8 @@
         <div class="row">
             <div class="centered-title">
                 <h3>BUKU TERSEDIA</h3>
-            </div><!-- blogs-title -->
+            </div>
+            <!-- blogs-title -->
             <?php
                 foreach($data_buku->result_array() as $buku){
 
