@@ -12,10 +12,12 @@ class Buku extends CI_Controller {
 
 	public function detail($url)
 	{
-		$data = array('title' => 'Perpustakaan Desa Podoroto, Kesamben, Jombang, Jawa Timur',
-			'data_buku'=> $this->web->select_buku(),
-			'data_kategori'=> $this->web->select_kategori(),
-			'data_buku' => $this->web->detail_buku($url),
+		$data = array(
+			'title' 		=> $this->web->detail_buku($url)->judul_buku .' - '. systems('site_title'),
+			'data_kategori'	=> $this->web->select_kategori(),
+			'data_buku' 	=> $this->web->detail_buku($url),
+			'keywords'      => systems('keywords'),
+            'descriptions'  => systems('descriptions'),
 			);
 		$this->load->view('public/part/header', $data);
         $this->load->view('public/layout/home/detail');

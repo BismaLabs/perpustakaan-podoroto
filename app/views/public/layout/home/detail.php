@@ -27,7 +27,7 @@
                                         <strong><i class="fa fa-folder margin-r-5"></i> KATEGORI</strong>
                                         <p class="text-muted">
                                             <?php
-                                                $data_buku->kategori_id
+                                                $data_buku->nama_kategori
                                             ?>
                                         </p>
                                         <hr>
@@ -88,7 +88,7 @@
                                         <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a>
 
                                         <span class="pull-right"> <?php echo $this->db->where("kategori_id", $data_buku->kategori_id)->count_all_results("tbl_buku") ?></span>
-                                        
+
                                     </li>
                                     <?php } ?>
                                 </ul>
