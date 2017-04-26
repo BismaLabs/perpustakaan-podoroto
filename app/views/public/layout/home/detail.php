@@ -27,7 +27,7 @@
                                         <strong><i class="fa fa-folder margin-r-5"></i> KATEGORI</strong>
                                         <p class="text-muted">
                                             <?php
-                                                $data_buku->nama_kategori
+                                                echo $data_buku->nama_kategori
                                             ?>
                                         </p>
                                         <hr>
