@@ -45,7 +45,6 @@
                         <a href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>resources/public/images/perpus-logo.png" title="Perpustakaan Desa Podoroto"> 
                         </a>
                     </div>
-
                     <nav id="primary-navigation" class="site-navigation navbar-collapse collapse" role="navigation">
                         <div class="nav-menu">
                             <ul class="menu">
@@ -61,7 +60,8 @@
                                     <?php if (kategori_header() != NULL) {
                                         foreach(kategori_header() as $hasil) {
                                         ?>
-                                        <li><a href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a></li>
+                                        <li><a href="<?php echo base_url() ?>buku/detail_kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a></li>
+                                        <li><a href="<?php echo base_url() ?>buku/detail_kategori/">Load More</a></li>
                                     <?php }} ?>
                                     </ul>
                                 </li>
