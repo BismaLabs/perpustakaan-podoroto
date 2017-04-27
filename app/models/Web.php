@@ -47,7 +47,8 @@ class Web extends CI_Model{
 
     function detail_kategori($url)
     {
-        $query  = $this->db->query("SELECT a.kode_buku, a.judul_buku, a.foto, a.views, a.slug, a.tahun_terbit, a.penerbit, a.pengarang, a.kategori_id, a.deskripsi, a.no_isbn, a.jumlah_buku, a.created_at, b.id_kategori, b.nama_kategori, b.slug FROM tbl_buku as a JOIN tbl_kategori as b ON a.kategori_id = b.id_kategori WHERE b.slug = '$url'");
+        $query = $this->db->query("SELECT a.kode_buku, a.judul_buku, a.foto, a.views, a.tahun_terbit, a.penerbit, a.pengarang, a.kategori_id, a.deskripsi, a.no_isbn, a.jumlah_buku, a.created_at, b.id_kategori, b.nama_kategori, b.slug FROM tbl_buku as a JOIN tbl_kategori as b ON a.kategori_id = b.id_kategori WHERE b.slug = '$url'");
+
         if($query->num_rows() > 0)
         {
             return $query->row();
@@ -55,6 +56,5 @@ class Web extends CI_Model{
         {
             return NULL;
         }
-    }
-    
+    }   
 }

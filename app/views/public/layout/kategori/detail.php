@@ -6,7 +6,8 @@
             </div>
             <!-- blogs-title -->
             <?php
-                foreach($data_buku->result_array() as $buku){
+            if($data_buku != NULL):
+                foreach($data_buku->result_array() as $buku):
               //check lenght title
             if(strlen($buku['judul_buku'])<40)
             {
@@ -31,7 +32,11 @@
                     </div><!-- end entry-header -->
                 </div><!-- end inner -->
             </div><!-- end col -->
-            <?php } ?>
+            <?php
+            endforeach;
+        ?>
+            <?php endif; ?>
+
         </div><!-- end row -->
     </div><!-- end container -->
 </div>
