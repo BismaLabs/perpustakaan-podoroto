@@ -11,7 +11,7 @@
                 <div class="inner" style="text-align: center; background-color: white;">
                     <div class="entry-header">
                         <h6 class="post-title entry-title" style="">
-                            <a href="<?php echo base_url() ?>kategori/<?php echo $hasil['slug'] ?>/">
+                            <a href="<?php echo base_url() ?>kategori/<?php echo $hasil['slug_kategori'] ?>/">
                             <?php echo $hasil['nama_kategori'] ?>
                             </a>
                         </h6>

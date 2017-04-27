@@ -1,7 +1,7 @@
 <div class="blog-section">
     <div class="container">
         <div class="row">
-            <div class="centered-title">
+            <div class="centered-title" style="padding-top: 10px">
                 <h3>BUKU TERSEDIA</h3>
             </div>
             <!-- blogs-title -->
