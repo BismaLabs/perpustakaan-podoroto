@@ -13,7 +13,7 @@ class Home extends CI_Controller
     public function index()
     {
         $data = array(
-            'title'         => 'Perpustakaan Desa Podoroto, Kesamben, Jombang, Jawa Timur',
+            'title'         => systems('site_title'),
             'data_buku'     => $this->web->select_buku(),
             'data_kategori' => $this->web->select_kategori()
         );

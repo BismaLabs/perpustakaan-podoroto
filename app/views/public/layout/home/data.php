@@ -7,7 +7,6 @@
             <!-- blogs-title -->
             <?php
                 foreach($data_buku->result_array() as $buku){
-
                             //check lenght title
             if(strlen($buku['judul_buku'])<40)
             {
