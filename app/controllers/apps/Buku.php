@@ -408,7 +408,7 @@ class Buku extends CI_Controller
         if($this->apps->apps_id())
         {
             $id     = $this->encryption->decode($this->uri->segment(4));
-            $query  = $this->db->query("SELECT kode_buku, foto FROM tbl_buku WHERE id_user ='$id'")->row();
+            $query  = $this->db->query("SELECT kode_buku, foto FROM tbl_buku WHERE kode_buku ='$id'")->row();
             unlink(realpath('resources/images/buku/'.$query->thumbnail));
             unlink(realpath('resources/images/buku/thumb/'.$query->foto));
             $key['kode_buku'] = $id;

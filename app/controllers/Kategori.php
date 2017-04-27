@@ -29,7 +29,7 @@ Class Kategori extends CI_Controller {
 	public function detail($url)
 	{
 			$data = array(
-			'title' 		=> $this->web->detail_kategori($url)->slug.' - '. systems('site_title'),
+			'title' 		=> $this->web->detail_kategori($url)->nama_kategori.' - '. systems('site_title'),
 			'data_kategori'	=> $this->web->select_kategori(),
 			'data_buku' 	=> $this->web->detail_buku($url),
 			'keywords'      => systems('keywords'),

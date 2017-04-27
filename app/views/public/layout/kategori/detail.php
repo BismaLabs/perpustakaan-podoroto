@@ -27,7 +27,7 @@
                         <time class="published"  title="April 25, 2016 - 21:12 pm">
                         <?php echo $buku['created_at']?></time>
                         <h6 class="post-title entry-title">
-                            <?php echo $judul ?>
+                            <?php echo $buku ?>
                         </h6>
                     </div><!-- end entry-header -->
                 </div><!-- end inner -->
