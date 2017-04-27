@@ -162,7 +162,7 @@ class Kategori extends CI_Controller
 
                 $insert = array(
                     'nama_kategori' => $this->input->post("nama_kategori"),
-                    'slug'          => url_title(strtolower($this->input->post("nama_kategori"))),
+                    'slug_kategori'          => url_title(strtolower($this->input->post("nama_kategori"))),
                     'created_at'    => date("Y-m-d H:i:s"),
                     'updated_at'    => date("Y-m-d H:i:s")
                 );
@@ -179,7 +179,7 @@ class Kategori extends CI_Controller
 
                 $update = array(
                     'nama_kategori' => $this->input->post("nama_kategori"),
-                    'slug'          => url_title(strtolower($this->input->post("nama_kategori"))),
+                    'slug_kategori'          => url_title(strtolower($this->input->post("nama_kategori"))),
                     'created_at'    => date("Y-m-d H:i:s"),
                     'updated_at'    => date("Y-m-d H:i:s")
                 );

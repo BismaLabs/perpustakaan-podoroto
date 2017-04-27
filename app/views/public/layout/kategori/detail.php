@@ -6,28 +6,28 @@
             </div>
             <!-- blogs-title -->
             <?php
-            if($data_buku != NULL):
-                foreach($data_buku->result_array() as $buku):
+            if($data_kategori != NULL):
+                foreach($data_kategori->result() as $hasil):
               //check lenght title
-            if(strlen($buku['judul_buku'])<40)
+            if(strlen($hasil->nama_kategori)<40)
             {
-                $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/">
-                            '. $buku['judul_buku'].'
+                $judul = '<a href="'. base_url().'buku/'.$hasil->slug.'/">
+                            '. $hasil->judul_buku.'
                           </a>';
             }else{
-                $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/" title="'.$buku['judul_buku'].'">
-                            '. substr($buku['judul_buku'], 0, 45).'....
+                $judul = '<a href="'. base_url().'buku/'.$hasil->slug.'/" title="'.$hasil->judul_buku.'">
+                            '. substr($hasil->judul_buku, 0, 45).'....
                           </a>';
             }
             ?>
             <div class="col-md-3">
-                <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $buku['foto']; ?>" alt="" style="object-fit: cover; width:262px; height:auto;">
+                <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $hasil->foto; ?>" alt="" style="object-fit: cover; width:262px; height:auto;">
                 <div class="inner" style="padding:10px">
                     <div class="entry-header">
-                        <time class="published"  title="April 25, 2016 - 21:12 pm">
-                        <?php echo $buku['created_at']?></time>
+                        <time class="published"  title="<?php echo $hasil->created_at ?>">
+                        <?php echo $hasil->created_at ?></time>
                         <h6 class="post-title entry-title">
-                            <?php echo $buku ?>
+                            <?php echo $judul ?>
                         </h6>
                     </div><!-- end entry-header -->
                 </div><!-- end inner -->

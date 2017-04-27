@@ -56,5 +56,46 @@ class Web extends CI_Model{
         {
             return NULL;
         }
-    }   
+    }
+
+    function count_kategori($slug)
+    {
+        $query = $this->db->select('a.kode_buku, a.kategori_id, a.judul_buku, a.slug, a.views, a.foto, a.created_at, b.id_kategori, b.nama_kategori, b.slug_kategori, c.id_user, c.username, c.nama_user')
+            ->from('tbl_buku a')
+            ->join('tbl_kategori b','a.kategori_id = b.id_kategori')
+            ->join('tbl_users c','a.user_id = c.id_user')
+            ->where('b.slug_kategori',$slug)
+            ->order_by('a.kode_buku','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function index_kategori($halaman,$batas,$slug)
+    {
+        $query = "SELECT a.kode_buku, a.kategori_id, a.judul_buku, a.slug, a.views, a.foto, a.created_at, b.id_kategori, b.nama_kategori, b.slug_kategori, c.id_user, c.username, c.nama_user FROM tbl_buku as a JOIN tbl_kategori as b JOIN tbl_users as c ON a.kategori_id = b.id_kategori AND a.user_id = c.id_user WHERE b.slug_kategori = '$slug' limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function get_kategori_judul($slug)
+    {
+        $query = $this->db->query("SELECT * FROM tbl_kategori WHERE slug_kategori = '$slug'");
+
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
+
+
 }
