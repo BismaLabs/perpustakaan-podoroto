@@ -47,7 +47,7 @@ class Web extends CI_Model{
 
     function detail_kategori($url)
     {
-        $query  = "SELECT * FROM tbl_kategri ORDER  BY nama_category ASC";
+        $query  = "SELECT * FROM tbl_kategori ORDER  BY nama_kategori ASC";
         $result = $this->db->query($query)->result();
         return $result;
     }
