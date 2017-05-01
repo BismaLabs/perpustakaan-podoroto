@@ -11,7 +11,7 @@
                 <div class="inner" style="text-align: center; background-color: white;">
                     <div class="entry-header">
                         <h6 class="post-title entry-title" style="">
-                            <a href="<?php echo base_url() ?>page/<?php echo $hasil['judul_page'] ?>/">
+                            <a href="<?php echo base_url() ?>page/detail/<?php echo $hasil['slug_page'] ?>/">
                             <?php echo $hasil['judul_page'] ?>
                             </a>
                         </h6>

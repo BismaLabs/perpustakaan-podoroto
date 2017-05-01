@@ -14,13 +14,6 @@ class Web extends CI_Model{
         parent::__construct();
     }
 
-    //get pages by id
-    function get_pages($id_pages)
-    {
-        $query = $this->db->query("SELECT * FROM tbl_pages WHERE id_page = '$id_pages'");
-        return $query;
-    }
-
      function select_pages()
     {
     $this->db->order_by('id_page DESC');
@@ -50,6 +43,19 @@ class Web extends CI_Model{
             return NULL;
         }
     }
+
+    function detail_pages($url)
+    {
+       $query = $this->db->query("SELECT * FROM tbl_pages WHERE slug_page = '$url'");
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
+
 
     function detail_kategori($url)
     {

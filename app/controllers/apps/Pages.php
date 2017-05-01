@@ -168,11 +168,6 @@ class Pages extends CI_Controller{
                                                             </div>');
                     //redirect halaman
                     redirect('apps/pages?source=add&utf8=✓');
-<<<<<<< HEAD
-=======
-      
-                
->>>>>>> 3acd1fb7a8374b26a6e236ee67e6e991143f4427
             } elseif ($type == "edit") {
                  $id['id_page'] = $this->encryption->decode($this->input->post("id_page"));
             $update = array(
@@ -193,10 +188,7 @@ class Pages extends CI_Controller{
             redirect('apps/pages?source=edit&utf8=✓');
         }
     }
-<<<<<<< HEAD
 }
-=======
->>>>>>> 3acd1fb7a8374b26a6e236ee67e6e991143f4427
 
     public function delete()
     {

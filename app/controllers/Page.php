@@ -22,12 +22,14 @@ class Page extends CI_Controller {
         $this->load->view('public/part/footer');
 	}
 
-	public function detail_pages($id_pages)
-	{
-		$data = array('title' => systems('site_title'),
-		'data_buku'=> $this->web->select_buku(),
-		'data_kategori'=> $this->web->select_kategori(),
-		'data_page'=> $this->web->get_pages($id_pages)
+	public function detail($url)
+	{	
+		$data = array( 'title' 		=> $this->web->detail_pages($url)->judul_page .' - '. systems('site_title'),
+            'keywords'      => systems('keywords'),
+            'descriptions'  => systems('descriptions'),
+            'data_buku'		=> $this->web->select_buku(),
+			'data_kategori'	=> $this->web->select_kategori(),
+			'data_page' 	=> $this->web->detail_pages($url),
 		);
 
 		$this->load->view('public/part/header', $data);

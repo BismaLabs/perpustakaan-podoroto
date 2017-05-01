@@ -1,24 +1,29 @@
 <div id="main" style="padding-top: 20px">
             <div class="container">
                 <div class="row">
+                    <?php
+                    if($data_page != NULL) :
+                    ?>
                     <div id="primary" class="widget content-area" style="background-color: white;box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
                         <div id="content" class="site-content">
-                        <?php foreach ($data_page->result() as $hasil) { ?>
                             <div class="service-page">
                                 <h1 class="entry-title">
-                                    <a href="#"><?php echo $hasil->judul_page ?></a>
+                                    <a href="#"><?php echo $data_page->judul_page ?></a>
                                 </h1>
                                 <div class="entry-content">
                                 <p>
-                                   <?php echo $hasil->isi_page ?>
+                                   <?php echo $data_page->isi_page ?>
                                 </p>       
                                 </div><!-- end entry-content -->
 
                             </div><!-- end service page -->
 
                         </div><!-- end #content -->
-                         <?php } ?>
                     </div>
+                      <?php
+            else:
+        ?>
+        <?php endif; ?>
                     <div id="secondary" class="col-md-4">
                         <div id="search-2" class="widget widget_search">
                             <div class="widget-title-outer">
