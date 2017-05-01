@@ -168,12 +168,8 @@ class Pages extends CI_Controller{
                                                             </div>');
                     //redirect halaman
                     redirect('apps/pages?source=add&utf8=✓');
-                } else {
-                    $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
-                                                                <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan
-                                                            </div>');
-                    redirect('apps/pages?source=add&utf8=✓');
-                }
+      
+                
             } elseif ($type == "edit") {
                 $update = array(
                 'judul_page'    => $this->input->post("judul"),
@@ -193,6 +189,7 @@ class Pages extends CI_Controller{
             redirect('apps/pages?source=edit&utf8=✓');
             }
         }
+    }
 
     public function delete()
     {
