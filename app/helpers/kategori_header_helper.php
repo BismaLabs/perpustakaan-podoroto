@@ -21,4 +21,18 @@ if(!function_exists('kategori_header'))
             return $query->result();
         }
     }
+
+    function page_header()
+    {
+        $CI = & get_instance();
+ 
+        $query = $CI->db->select('*')->order_by('judul_page' ,'ASC')->limit(4)->get('tbl_pages');
+ 
+        if($query->num_rows() < 0){
+ 
+            return NULL;
+        }else{
+            return $query->result();
+        }
+    }
 }

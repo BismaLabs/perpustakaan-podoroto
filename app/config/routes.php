@@ -55,6 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 //routing page
-$route['page(:any)'] = "page/detail/$1";
+$route['page/(:any)'] = "page/detail/$1";
 $route['buku/(:any)'] = "buku/detail/$1";
 $route['kategori/(:any)'] = "kategori/detail/$1";

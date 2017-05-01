@@ -52,10 +52,11 @@
                                 <li class="has-child">
                                 <a href="<?php echo base_url() ?>page/">Profil</a>
                                     <ul class="sub-menu">
-                                        <li><a href="<?php echo base_url() ?>visi-misi/">Visi dan Misi</a></li>
-                                         <li><a href="<?php echo base_url() ?>ketentuan_umum/">Ketentuan Umum</a></li>
-                                         <li><a href="<?php echo base_url()?>pelayanan/">Pelayanan</a></li>
-                                         <li><a href="<?php echo base_url()?>layanan_internet/">Internet Desa</a></li>
+                                    <?php if (page_header()!= NULL) {
+                                        foreach (page_header() as $param) {
+                                        ?>
+                                        <li><a href="<?php echo base_url() ?>page/<?php echo $param->slug_page ?> "><?php echo $param->judul_page ?></a></li>
+                                         <?php }} ?>
                                     </ul>
                                 </li>
                                 <li class="has-child"><a href="#">Kategori Buku</a>
