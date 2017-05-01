@@ -194,10 +194,10 @@ class Apps extends CI_Model{
         }   
 
         function select_kategori()
-    {
-    $this->db->order_by('nama_kategori ASC');
-    return $this->db->get('tbl_kategori');
-    }
+        {
+        $this->db->order_by('nama_kategori ASC');
+        return $this->db->get('tbl_kategori');
+        }
 
         function index_buku($halaman,$batas)
         {

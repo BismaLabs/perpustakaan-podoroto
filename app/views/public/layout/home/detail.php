@@ -85,7 +85,7 @@
                                 <ul>
                                 <?php foreach($data_kategori->result() as $hasil){ ?>
                                     <li>
-                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug ?>/"><?php echo $hasil->nama_kategori ?></a>
+                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug_kategori ?>/"><?php echo $hasil->nama_kategori ?></a>
 
                                         <span class="pull-right"> <?php echo $this->db->where("kategori_id", $data_buku->kategori_id)->count_all_results("tbl_buku") ?></span>
 

@@ -22,6 +22,13 @@
                     <div class="box-body">
                         <form method="GET" action="<?php echo base_url('apps/pages/search');?>" style="margin-top: 10px">
                             <div class = "input-group">
+                            <span class="input-group-btn">
+                                <a href="<?php echo base_url('apps/pages/add/?source=add&utf8=✓') ?>" class="btn btn-default btn-md" type="button">
+                                    <i class="fa fa-plus-circle">
+                                        Tambah
+                                    </i>
+                                </a>
+                            </span>
                                 <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Judul Pages dan Enter" autocomplete="off" id="articles">
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 <span class = "input-group-btn">
@@ -55,6 +62,7 @@
                                         <td> <?php echo $this->apps->time_elapsed_string($hasil->updated_at) ?></td>
                                         <td class="text-center">
                                             <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/pages/edit/<?php echo $this->encryption->encode($hasil->id_page) ?>'><i class="fa fa-pencil"></i> Edit</a>
+                                            <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Hapus" href='<?php echo base_url() ?>apps/pages/delete/<?php echo $this->encryption->encode($hasil->id_page) ?>'><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <?php

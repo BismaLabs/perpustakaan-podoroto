@@ -103,6 +103,24 @@ class Pages extends CI_Controller{
         }
     }
 
+     public function add()
+    {
+        if ($this->apps->apps_id()) {
+            //create data array
+            $data = array('title' => 'Tambah Page',
+                        'Tambah' => 'TRUE',
+                        'type' => 'add');
+            //load view layout tambah
+            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/sidebar');
+            $this->load->view('apps/layout/pages/add');
+            $this->load->view('apps/part/footer');
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
     public function edit($id_page)
     {
         if($this->apps->apps_id())
@@ -113,6 +131,7 @@ class Pages extends CI_Controller{
             $data = array(
                 'title'         => 'Edit Pages',
                 'pages'         => TRUE,
+                'type'          => 'edit',
                 'data_pages'    => $this->apps->edit_pages($id_page)->row_array()
             );
             $this->load->view('apps/part/header', $data);
@@ -129,7 +148,33 @@ class Pages extends CI_Controller{
     {
         if($this->apps->apps_id())
         {
+            $type = $this->input->post("type");
             $id['id_page'] = $this->encryption->decode($this->input->post("id_page"));
+            if ($type == "add") {
+            $insert = array(
+                'judul_page'    => $this->input->post("judul"),
+                'isi_page'      => $this->input->post("isi_page"),
+                'user_id'       => $this->session->userdata("apps_id"),
+                'meta_keywords' => $this->input->post("meta_keywords"),
+                'meta_descriptions' => $this->input->post("meta_descriptions"),
+                'slug_page' => url_title(strtolower($this->input->post("judul_page"))),
+                'updated_at'    => date("Y-m-d H:i:s")
+            );
+            $this->db->insert("tbl_pages", $insert, $id);
+            //deklarasi session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                                                                <i class="fa fa-check"></i> Data Berhasil Disimpan.
+                                                            </div>');
+                    //redirect halaman
+                    redirect('apps/pages?source=add&utf8=✓');
+                } else {
+                    $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
+                                                                <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan ' . $this->upload->display_errors('') . '
+                                                            </div>');
+                    redirect('apps/pages?source=add&utf8=✓');
+                }
+
+            }elseif ($type == "edit") {
             $update = array(
                 'judul_page'    => $this->input->post("judul"),
                 'isi_page'      => $this->input->post("isi_page"),
@@ -145,10 +190,26 @@ class Pages extends CI_Controller{
 			                                                </div>');
             //redirect halaman
             redirect('apps/pages?source=edit&utf8=✓');
-        }else{
+            }else{
+                show_404();
+                return FALSE;
+        }
+    }
+
+    public function delete()
+    {
+        if ($this->apps->apps_id()) {
+            $id = $this->encryption->decode($this->uri->segment(4));
+            $key['id_page'] = $id;
+            $this->db->delete('tbl_pages', $key);
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                                                                <i class="fa fa-check"></i> Data Berhasil Dihapus.
+                                                            </div>');
+            //redirect halaman
+           redirect('apps/pages?source=delete&utf8=✓');
+           }else {
             show_404();
             return FALSE;
         }
     }
-
 }
