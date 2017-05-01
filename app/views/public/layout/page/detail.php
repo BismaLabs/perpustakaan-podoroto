@@ -43,7 +43,7 @@
                                 <ul>
                                 <?php foreach($data_kategori->result() as $hasil){ ?>
                                     <li>
-                                        <a class="pull-left" href="#"><?php echo $hasil->nama_kategori ?></a>
+                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $hasil->slug_kategori ?>/"><?php echo $hasil->nama_kategori ?></a>
                                         <span class="pull-right"></span>
                                     </li>
                                     <?php } ?>
