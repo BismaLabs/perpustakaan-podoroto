@@ -25,6 +25,7 @@
                         echo form_open_multipart('apps/pages/save?source=login&utf8=✓', $attributes)
                         ?>
                         <div class="form-group">
+                         <input type="hidden" name="type" value="<?php echo $type ?>">
                             <label for="artilces">Judul Pages</label>
                             <input type="text" class="form-control" name="judul" value="<?php echo $data_pages['judul_page'] ?>" id="articles" placeholder="Enter Judul Pages">
                             <input type="hidden" name="id_page" value="<?php echo $this->encryption->encode($data_pages['id_page']) ?>">

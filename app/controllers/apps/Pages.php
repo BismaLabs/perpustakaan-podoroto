@@ -130,7 +130,7 @@ class Pages extends CI_Controller{
             //create data array
             $data = array(
                 'title'         => 'Edit Pages',
-                'pages'         => TRUE,
+                'Edit'         => TRUE,
                 'type'          => 'edit',
                 'data_pages'    => $this->apps->edit_pages($id_page)->row_array()
             );
@@ -150,6 +150,7 @@ class Pages extends CI_Controller{
         {
             $type = $this->input->post("type");
             $id['id_page'] = $this->encryption->decode($this->input->post("id_page"));
+
             if ($type == "add") {
             $insert = array(
                 'judul_page'    => $this->input->post("judul"),
@@ -157,7 +158,7 @@ class Pages extends CI_Controller{
                 'user_id'       => $this->session->userdata("apps_id"),
                 'meta_keywords' => $this->input->post("meta_keywords"),
                 'meta_descriptions' => $this->input->post("meta_descriptions"),
-                'slug_page' => url_title(strtolower($this->input->post("judul_page"))),
+                'slug_page' => url_title(strtolower($this->input->post("judul"))),
                 'updated_at'    => date("Y-m-d H:i:s")
             );
             $this->db->insert("tbl_pages", $insert, $id);
@@ -169,32 +170,29 @@ class Pages extends CI_Controller{
                     redirect('apps/pages?source=add&utf8=✓');
                 } else {
                     $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
-                                                                <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan ' . $this->upload->display_errors('') . '
+                                                                <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan
                                                             </div>');
                     redirect('apps/pages?source=add&utf8=✓');
                 }
-
-            }elseif ($type == "edit") {
-            $update = array(
+            } elseif ($type == "edit") {
+                $update = array(
                 'judul_page'    => $this->input->post("judul"),
                 'isi_page'      => $this->input->post("isi_page"),
                 'user_id'       => $this->session->userdata("apps_id"),
                 'meta_keywords' => $this->input->post("meta_keywords"),
                 'meta_descriptions' => $this->input->post("meta_descriptions"),
+                 'slug_page' => url_title(strtolower($this->input->post("judul_page"))),
                 'updated_at'    => date("Y-m-d H:i:s")
             );
             $this->db->update("tbl_pages", $update, $id);
             //deklarasi session flashdata
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-check"></i> Data Berhasil Diupdate.
-			                                                </div>');
+                                                                <i class="fa fa-check"></i> Data Berhasil Diupdate.
+                                                            </div>');
             //redirect halaman
             redirect('apps/pages?source=edit&utf8=✓');
-            }else{
-                show_404();
-                return FALSE;
+            }
         }
-    }
 
     public function delete()
     {

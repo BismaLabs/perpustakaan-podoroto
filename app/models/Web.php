@@ -17,7 +17,7 @@ class Web extends CI_Model{
     //get pages by id
     function get_pages($id_pages)
     {
-        $query = $this->db->query("SELECT * FROM tbl_pages WHERE slug_page = '$id_pages'");
+        $query = $this->db->query("SELECT * FROM tbl_pages WHERE id_page = '$id_pages'");
         return $query;
     }
 

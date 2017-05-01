@@ -27,7 +27,7 @@ class Page extends CI_Controller {
 		$data = array('title' => systems('site_title'),
 		'data_buku'=> $this->web->select_buku(),
 		'data_kategori'=> $this->web->select_kategori(),
-		'data_page'=> $this->web->select_pages($id_pages)
+		'data_page'=> $this->web->get_pages($id_pages)
 		);
 
 		$this->load->view('public/part/header', $data);
