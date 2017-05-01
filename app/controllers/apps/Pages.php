@@ -164,35 +164,31 @@ class Pages extends CI_Controller{
             $this->db->insert("tbl_pages", $insert, $id);
             //deklarasi session flashdata
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-                                                                <i class="fa fa-check"></i> Data Berhasil Disimpan.
+                                                                <i class="fa fa-check"></i> Data Berhasil Diupdate.
                                                             </div>');
                     //redirect halaman
                     redirect('apps/pages?source=add&utf8=✓');
-                } else {
-                    $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
-                                                                <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan
-                                                            </div>');
-                    redirect('apps/pages?source=add&utf8=✓');
-                }
             } elseif ($type == "edit") {
-                $update = array(
+                 $id['id_page'] = $this->encryption->decode($this->input->post("id_page"));
+            $update = array(
                 'judul_page'    => $this->input->post("judul"),
                 'isi_page'      => $this->input->post("isi_page"),
                 'user_id'       => $this->session->userdata("apps_id"),
                 'meta_keywords' => $this->input->post("meta_keywords"),
+                'slug_page' => url_title(strtolower($this->input->post("judul"))),
                 'meta_descriptions' => $this->input->post("meta_descriptions"),
-                 'slug_page' => url_title(strtolower($this->input->post("judul_page"))),
                 'updated_at'    => date("Y-m-d H:i:s")
             );
             $this->db->update("tbl_pages", $update, $id);
             //deklarasi session flashdata
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-                                                                <i class="fa fa-check"></i> Data Berhasil Diupdate.
-                                                            </div>');
+                                                              <i class="fa fa-check"></i> Data Berhasil Diupdate.
+                                                          </div>');
             //redirect halaman
             redirect('apps/pages?source=edit&utf8=✓');
-            }
         }
+    }
+}
 
     public function delete()
     {
