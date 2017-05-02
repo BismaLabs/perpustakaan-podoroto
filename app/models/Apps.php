@@ -129,10 +129,9 @@ class Apps extends CI_Model{
 
     function edit_slider($id_slide)
     {
-        $id_user  =  array('id_slide'=> $id_slide);
+        $id_slide  =  array('id_slide'=> $id_slide);
         return $this->db->get_where('tbl_slider', $id_slide);
     }
-
         
 
     /* fungsi user */

@@ -141,7 +141,7 @@ class Slider extends CI_Controller
             );
             $this->load->view('apps/part/header', $data);
             $this->load->view('apps/part/sidebar');
-            $this->load->view('apps/layout/pages/edit');
+            $this->load->view('apps/layout/slider/edit');
             $this->load->view('apps/part/footer');
         }else{
             show_404();
@@ -240,7 +240,7 @@ class Slider extends CI_Controller
                     }
 
             } elseif ($type == "edit") {
-                if (empty($_FILES['userfile']['name'])) {
+                if (empty($_FILES['foto']['name'])) {
                     //create update array
                     $update = array(
                          'caption'        => $this->input->post("caption"),

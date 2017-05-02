@@ -29,7 +29,7 @@
                                     </i>
                                 </a>
                             </span>
-                                <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Judul Pages dan Enter" autocomplete="off" id="articles">
+                                <input type = "text" name = "q" class = "form-control input-md" placeholder="Masukkan Caption Images dan Enter" autocomplete="off" id="articles">
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 <span class = "input-group-btn">
                               <button class = "btn btn-default btn-md" type = "submit">
@@ -45,7 +45,8 @@
                                 <tr>
                                     <th class="text-center" style="color: #000;">No.</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-bookmark"></i> CAPTION</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-user-circle-o"></i> IMAGES</th>
+                                     <th class="text-center" style="color: #000;"><i class="fa fa-user-circle-o"></i> IMAGES</th>
+                                     <th class="text-center" style="color: #000;"><i class="fa fa-user-circle-o"></i> UPDATE AT</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
                                 </thead>
@@ -58,9 +59,10 @@
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td class="text-center"><?php echo $hasil->caption ?></td>
                                         <td class="text-center"><?php echo $hasil->foto ?></td>
+                                        <td  class="text-center"> <?php echo $this->apps->time_elapsed_string($hasil->updated_at) ?></td>
                                         <td class="text-center">
-                                            <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/pages/edit/<?php echo $this->encryption->encode($hasil->id_page) ?>'><i class="fa fa-pencil"></i> Edit</a>
-                                            <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Hapus" href='<?php echo base_url() ?>apps/pages/delete/<?php echo $this->encryption->encode($hasil->id_page) ?>'><i class="fa fa-trash"></i> Delete</a>
+                                            <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/slider/edit/<?php echo $this->encryption->encode($hasil->id_slide) ?>'><i class="fa fa-pencil"></i> Edit</a>
+                                            <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Hapus" href='<?php echo base_url() ?>apps/slider/delete/<?php echo $this->encryption->encode($hasil->id_slide) ?>'><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <?php
