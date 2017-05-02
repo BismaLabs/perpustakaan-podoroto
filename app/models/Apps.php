@@ -74,6 +74,67 @@ class Apps extends CI_Model{
             return $q;
         }
 
+        /* fungsi slider */
+    function count_slider()
+    {
+        return $this->db->get('tbl_slider');
+    }
+
+    function index_slider($halaman,$batas)
+    {
+        $query = "SELECT * FROM tbl_slider ORDER BY id_slide DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function search_slider_json()
+    {
+        $query = $this->db->get('tbl_slider');
+        return $query->result();
+    }
+
+    function total_search_slider($keyword)
+    {
+        $query = $this->db->like('caption',$keyword)->get('tbl_slider');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_slider($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_slider')
+            ->limit($limit,$offset)
+            ->like('caption',$keyword)
+            ->or_like('caption', $keyword)
+            ->limit($limit,$offset)
+            ->order_by('id_slide','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function edit_slider($id_slide)
+    {
+        $id_user  =  array('id_slide'=> $id_slide);
+        return $this->db->get_where('tbl_slider', $id_slide);
+    }
+
+        
+
     /* fungsi user */
     function count_users()
     {

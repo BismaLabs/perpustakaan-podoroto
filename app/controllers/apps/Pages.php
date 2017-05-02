@@ -108,7 +108,7 @@ class Pages extends CI_Controller{
         if ($this->apps->apps_id()) {
             //create data array
             $data = array('title' => 'Tambah Page',
-                        'Tambah' => 'TRUE',
+                        'pages' => TRUE,
                         'type' => 'add');
             //load view layout tambah
             $this->load->view('apps/part/header', $data);
@@ -130,7 +130,7 @@ class Pages extends CI_Controller{
             //create data array
             $data = array(
                 'title'         => 'Edit Pages',
-                'Edit'         => TRUE,
+                'pages'         => TRUE,
                 'type'          => 'edit',
                 'data_pages'    => $this->apps->edit_pages($id_page)->row_array()
             );
