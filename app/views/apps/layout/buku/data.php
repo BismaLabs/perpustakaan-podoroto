@@ -64,7 +64,7 @@
                                         <td class="text-center">
                                             <a class="badge badge-primary" style="background-color: #060884;" data-toggle="tooltip" data-placement="top" title="Lihat Detail" href="<?php echo base_url() ?>apps/buku/detail/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"><i class="fa fa-external-link"></i> Detail</a>
                                             <a class="badge badge-success" style="background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url() ?>apps/buku/edit/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"><i class="fa fa-pencil"></i> Edit</a>
-                                            <a class="badge badge-danger" style="background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="<?php echo base_url() ?>apps/buku/delete/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"><i class="fa fa-trash"></i> Delete</a>
+                                            <a class="badge badge-danger" style="background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="<?php echo base_url() ?>apps/buku/delete/<?php echo $this->encryption->encode($hasil->kode_buku) ?>"   onclick="return confirm('Anda Yakin Ingin Menghapus?');"><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <?php

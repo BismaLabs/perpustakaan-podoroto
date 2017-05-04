@@ -32,6 +32,12 @@ class Web extends CI_Model{
     return $this->db->get('tbl_kategori');
     }
 
+     function select_slider()
+    {
+    $this->db->order_by('id_slide DESC');
+    return $this->db->get('tbl_slider');
+    }
+
     function detail_buku($url)
     {
         $query = $this->db->query("SELECT a.kode_buku, a.judul_buku, a.foto, a.views, a.slug, a.tahun_terbit, a.penerbit, a.pengarang, a.kategori_id, a.deskripsi, a.no_isbn, a.jumlah_buku, a.created_at, b.id_kategori, b.nama_kategori FROM tbl_buku as a JOIN tbl_kategori as b ON a.kategori_id = b.id_kategori WHERE a.slug = '$url'");
@@ -109,5 +115,17 @@ class Web extends CI_Model{
         }
     }
 
+    function select_buku_populer()
+    {
+        // $query = $this->db->query("SELECT * FROM tbl_buku WHERE views > 50");
+        $query = $this->db->select('*')->where('views > ', '0' )->limit(4)->get('tbl_buku');
 
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
 }

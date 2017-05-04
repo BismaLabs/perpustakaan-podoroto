@@ -29,7 +29,7 @@
                         </div>
                         <div class="form-group">
                                 <label>Foto Slider</label>
-                                <input type="file" class="form-control" name="foto" style="margin-bottom: 10px">
+                                <input type="file" class="form-control" name="userfile" style="margin-bottom: 10px">
                                 <span class="label label-danger">
                                    NOTE!
                                 </span>

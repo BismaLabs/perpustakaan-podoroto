@@ -57,12 +57,12 @@
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
-                                        <td class="text-center"><?php echo $hasil->caption ?></td>
-                                        <td class="text-center"><?php echo $hasil->foto ?></td>
+                                        <td class="text-center"><?php echo $hasil->caption; ?></td>
+                                         <td class="text-center"> <img src="<?php echo base_url() ?>resources/images/slider/<?php echo $hasil->foto ?>" class="img-responsive" style="width: 600px;height: 300px"></td>
                                         <td  class="text-center"> <?php echo $this->apps->time_elapsed_string($hasil->updated_at) ?></td>
                                         <td class="text-center">
                                             <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/slider/edit/<?php echo $this->encryption->encode($hasil->id_slide) ?>'><i class="fa fa-pencil"></i> Edit</a>
-                                            <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Hapus" href='<?php echo base_url() ?>apps/slider/delete/<?php echo $this->encryption->encode($hasil->id_slide) ?>'><i class="fa fa-trash"></i> Delete</a>
+                                            <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Hapus" href='<?php echo base_url() ?>apps/slider/delete/<?php echo $this->encryption->encode($hasil->id_slide) ?>'  onclick="return confirm('Anda Yakin Ingin Menghapus?');"><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <?php

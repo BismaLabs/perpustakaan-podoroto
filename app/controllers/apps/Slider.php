@@ -47,7 +47,7 @@ class Slider extends CI_Controller
 
             }
             //load view with data
-            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/header',$data);
             $this->load->view('apps/part/sidebar');
             $this->load->view('apps/layout/slider/data');
             $this->load->view('apps/part/footer');
@@ -177,7 +177,7 @@ class Slider extends CI_Controller
                     $this->load->library("image_lib");
 
                     $this->upload->initialize($config);
-                    if ($this->upload->do_upload("foto")) {
+                    if ($this->upload->do_upload("userfile")) {
                         $data_upload = $this->upload->data();
 
                         /* PATH */
@@ -240,7 +240,7 @@ class Slider extends CI_Controller
                     }
 
             } elseif ($type == "edit") {
-                if (empty($_FILES['foto']['name'])) {
+                if (empty($_FILES['userfile']['name'])) {
                     //create update array
                     $update = array(
                          'caption'        => $this->input->post("caption"),
@@ -271,7 +271,7 @@ class Slider extends CI_Controller
                     $this->load->library("image_lib");
 
                     $this->upload->initialize($config);
-                    if ($this->upload->do_upload("foto")) {
+                    if ($this->upload->do_upload("userfile")) {
                         $data_upload = $this->upload->data();
 
                         /* PATH */
@@ -344,6 +344,23 @@ class Slider extends CI_Controller
             }
 
         }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
+    public function delete($id_slide)
+    {
+         if ($this->apps->apps_id()) {
+            $id = $this->encryption->decode($this->uri->segment(4));
+            $key['id_slide'] = $id;
+            $this->db->delete('tbl_slider', $key);
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                                                                <i class="fa fa-check"></i> Data Berhasil Dihapus.
+                                                            </div>');
+            //redirect halaman
+           redirect('apps/slider?source=delete&utf8=✓');
+           }else {
             show_404();
             return FALSE;
         }

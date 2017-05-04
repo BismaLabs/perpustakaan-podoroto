@@ -33,7 +33,7 @@
 
                                 <td style='padding: 0 5px;'><strong>Email</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
-                                <td style='padding: 0 5px;'><a href='mailto:info@tambahrejo.desa.id'>info@tambahrejo.desa.id</a></td>
+                                <td style='padding: 0 5px;'><a href='mailto:perpus@podoroto.desa.id'>perpus@podoroto.desa.id</a></td>
                             </tr>								</table>
                     </div><!-- end inner -->
                 </div><!-- end widget -->
@@ -43,39 +43,18 @@
                 <div class="widget">
                     <div class="widget-inner">
                         <div class="widget-title-outer">
-                            <h3 class="widget-title">Foto Desa</h3>
+                            <h3 class="widget-title">Buku Terpopuler</h3>
                         </div>
                         <ul class="list-galleries">
+                            <?php  if (buku_populer() != NULL) {
+                                    foreach (buku_populer() as $hasil) {
+                            ?>
                             <li>
-                                <a href="#" class="open_x" id="7">
-                                    <img src="http://tambahrejo.desa.id/upload/image/IMG_0017.JPG" width="100px" height="100px" alt="" style="object-fit: cover;" >
-                                </a><!-- thumb 01 -->
+                                    <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $hasil->foto ?>" width="50px" height="auto" alt="" style="object-fit: cover;" >
                             </li>
-                            <li>
-                                <a href="#" class="open_x" id="6">
-                                    <img src="http://tambahrejo.desa.id/upload/image/P_20160511_154908.jpg" width="100px" height="100px" alt="" style="object-fit: cover;" >
-                                </a><!-- thumb 01 -->
-                            </li>
-                            <li>
-                                <a href="#" class="open_x" id="8">
-                                    <img src="http://tambahrejo.desa.id/upload/image/DSC_0414[1].jpg" width="100px" height="100px" alt="" style="object-fit: cover;" >
-                                </a><!-- thumb 01 -->
-                            </li>
-                            <li>
-                                <a href="#" class="open_x" id="10">
-                                    <img src="http://tambahrejo.desa.id/upload/image/P_20160511_151730.jpg" width="100px" height="100px" alt="" style="object-fit: cover;" >
-                                </a><!-- thumb 01 -->
-                            </li>
-                            <li>
-                                <a href="#" class="open_x" id="11">
-                                    <img src="http://tambahrejo.desa.id/upload/image/P_20160621_205435.jpg" width="100px" height="100px" alt="" style="object-fit: cover;" >
-                                </a><!-- thumb 01 -->
-                            </li>
-                            <li>
-                                <a href="#" class="open_x" id="12">
-                                    <img src="http://tambahrejo.desa.id/upload/image/tambahrejo2.jpg" width="100px" height="100px" alt="" style="object-fit: cover;" >
-                                </a><!-- thumb 01 -->
-                            </li>
+                            <?php
+                            }}
+                         ?>
                         </ul>
                     </div><!-- end gallery wrapper -->
                 </div><!-- end inner -->

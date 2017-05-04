@@ -32,9 +32,9 @@
             <li <?php if(isset($peminjam)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/peminjam/"><i class="fa fa-calendar-check-o"></i> <span>Data Peminjam</span></a></li>
             <li <?php if(isset($kategori)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/kategori/"><i class="fa fa-folder"></i> <span>Kategori Buku</span></a></li>
             <li <?php if(isset($laporan)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/laporan/"><i class="fa fa-print"></i> <span>Cetak Laporan</span></a></li>
+            <li <?php if(isset($slider)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/slider/"><i class="fa fa-file-image-o"></i> <span>Slider Website</span></a></li>
             <li class="header">MAIN SYSTEM</li>
             <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/users/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
-            <li <?php if(isset($slider)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/slider/"><i class="fa fa-file-image-o"></i> <span>Slider</span></a></li>
             <li <?php if(isset($pages)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/pages/"><i class="fa fa-television"></i> <span>Pages</span></a></li>
             <li class="header">MAIN SETTING</li>
             <li <?php if(isset($settings)) { echo 'class="active treeview"'; } ?>>

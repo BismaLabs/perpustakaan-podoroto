@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="logo navbar-brand">
-                        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>resources/public/images/perpus-logo.png" title="Perpustakaan Desa Podoroto"> 
+                        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>resources/images/logo.png" title="Perpustakaan Desa Podoroto"> 
                         </a>
                     </div>
                     <nav id="primary-navigation" class="site-navigation navbar-collapse collapse" role="navigation">
@@ -50,12 +50,12 @@
                             <ul class="menu">
                                 <li><a href='<?php echo base_url() ?>'>Home</a></li>
                                 <li class="has-child">
-                                <a href="<?php echo base_url() ?>page/">Profil</a>
+                                <a href="#">Profil</a>
                                     <ul class="sub-menu">
                                     <?php if (page_header()!= NULL) {
                                         foreach (page_header() as $param) {
                                         ?>
-                                        <li><a href="<?php echo base_url() ?>page/<?php echo $param->slug_page ?> "><?php echo $param->judul_page ?></a></li>
+                                        <li><a href="<?php echo base_url() ?>p/<?php echo $param->slug_page ?> "><?php echo $param->judul_page ?></a></li>
                                          <?php }} ?>
                                     </ul>
                                 </li>
@@ -69,8 +69,8 @@
                                     <li><a href="<?php echo base_url() ?>kategori/"> Lainnya..</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="Berita.html">Populer</a></li>
-                                <li><a href="Galeri.html">Terbaru</a></li>
+                                <li><a href="<?php echo base_url() ?>populer/">Populer</a></li>
+                                <li><a href="<?php echo base_url() ?>terbaru/">Terbaru</a></li>
                             </ul>
                         </div>
                     </nav>

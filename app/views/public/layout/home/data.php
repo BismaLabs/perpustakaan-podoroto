@@ -8,29 +8,35 @@
             <?php
                 foreach($data_buku->result_array() as $buku){
                             //check lenght title
-            if(strlen($buku['judul_buku'])<40)
+            if(strlen($buku['judul_buku'])<30)
             {
                 $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/">
                             '. $buku['judul_buku'].'
                           </a>';
             }else{
                 $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/" title="'.$buku['judul_buku'].'">
-                            '. substr($buku['judul_buku'], 0, 45).'....
+                            '. substr($buku['judul_buku'], 0, 20).'....
                           </a>';
             }
             ?>
             <div class="col-md-3">
-                <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $buku['foto']; ?>" alt="" style="object-fit: cover; width:262px; height:auto;">
-                <div class="inner" style="padding:10px">
-                    <div class="entry-header">
-                        <time class="published"  title="April 25, 2016 - 21:12 pm">
-                        <?php echo $buku['created_at']?></time>
-                        <h6 class="post-title entry-title">
-                            <?php echo $judul ?>
-                        </h6>
-                    </div><!-- end entry-header -->
-                </div><!-- end inner -->
-            </div><!-- end col -->
+                        <figure class="blog-thumb">
+                            <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $buku['foto']; ?>" style="width:100%; height:auto alt="" style="object-fit: cover;">
+                        </figure>
+                        <div class="inner">
+                            <div class="entry-header">
+                                <time class="published" title="<?php echo $buku['created_at']?>"><?php echo $buku['created_at']?></time>
+                                <h2 class="post-title entry-title wrap-berita">
+                                   <?php echo $judul ?>
+                                </h2>
+                            </div><!-- end entry-header -->
+                            <div class="entry-content">
+                                <a href="<?php echo base_url() ?>buku/<?php echo $buku['slug'] ?>/" class="more"> Selengkapnya</a>
+                            </div><!-- entry-content -->
+                             <div class="entry-content">
+                        </div>
+                        </div><!-- end inner -->
+                    </div>
             <?php } ?>
         </div><!-- end row -->
     </div><!-- end container -->

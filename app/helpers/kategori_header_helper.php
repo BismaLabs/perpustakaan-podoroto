@@ -35,4 +35,24 @@ if(!function_exists('kategori_header'))
             return $query->result();
         }
     }
+
+    function buku_populer() {
+        $CI = & get_instance();
+        $query = $CI->db->select('*')->where('views > ', '50' )->limit(6)->get('tbl_buku');
+         if($query->num_rows() < 0){
+            return NULL;
+        }else{
+            return $query->result();
+        }
+    }
+
+    function buku_terkait($kategori_id, $slug) {
+        $CI = & get_instance();
+        $query = $CI->db->select('*')->where('kategori_id', $kategori_id)->where_not_in('slug', $slug)->limit(3)->get('tbl_buku');
+         if($query->num_rows() < 0){
+            return NULL;
+        }else{
+            return $query->result();
+        }
+    }
 }
