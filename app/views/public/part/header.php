@@ -71,6 +71,7 @@
                                 </li>
                                 <li><a href="<?php echo base_url() ?>populer/">Populer</a></li>
                                 <li><a href="<?php echo base_url() ?>terbaru/">Terbaru</a></li>
+                                <li><a target="_blank" href="#">Website Desa</a></li>
                             </ul>
                         </div>
                     </nav>

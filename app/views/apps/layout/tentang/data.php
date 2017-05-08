@@ -35,7 +35,7 @@
                         </p>
                         <p>
                             <i class="fa fa-envelope"></i> support@bismalabs.co.id<br><br>
-                            <i class="fa fa-whatsapp"></i> +62 857-3059-4359 <br>  <span style="margin-left: 16px">+62 857-0699-0927</span><br><br>
+                            <i class="fa fa-whatsapp"></i> +62 857-3059-4359 <br>  <span style="margin-left: 16px">+62 896 1911 0436</span><br><br>
                             <i class="fa fa-globe"></i> http://bismalabs.co.id
                         </p>
                     </div>

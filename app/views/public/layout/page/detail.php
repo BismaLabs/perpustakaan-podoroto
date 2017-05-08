@@ -1,4 +1,4 @@
-<div id="main" style="padding-top: 20px">
+<div id="main" style="padding-top: 20px; padding-bottom: 30px">
             <div class="container">
                 <div class="row">
                     <?php

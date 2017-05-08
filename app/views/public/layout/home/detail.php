@@ -1,4 +1,4 @@
-<div id="main" style="padding-top: 30px">
+<div id="main" style="padding-top: 30px; padding-bottom: 30px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8" style="background-color: white;box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
@@ -48,7 +48,7 @@
                                     <strong><i class="fa fa-list-ul margin-r-5"></i> NO. ISBN</strong>
                                     <p class="text-muted"><?php echo $data_buku->no_isbn ?></p>
                                     <hr>
-                                    <strong><i class="fa fa-database margin-r-5"></i> JUMLAH BUKU</strong>
+                                    <strong><i class="fa fa-database margin-r-5"></i> BUKU TERSEDIA</strong>
                                     <p class="text-muted"><?php echo $data_buku->jumlah_buku ?></p>
                                 </div>
                                 </div>
@@ -57,7 +57,6 @@
                                     <strong><i class="fa fa-file-text-o margin-r-5"></i> Deskripsi Buku</strong>
                                     <p><?php echo $data_buku->deskripsi ?></p>
                                 </div>
-
                                 </div><!-- end entry-content -->
                                 </div><!-- end inner -->
                         </div><!-- end #content -->
@@ -82,128 +81,37 @@
                     </div><!-- end #primary -->
 
                     <div id="secondary" class="col-md-4">
-
+                    <?php echo $this->session->flashdata('notif'); ?>
                         <div id="search-2" class="widget widget_search">
                             <div class="widget-title-outer">
                                 <h3 class="widget-title">Pencarian</h3>
                             </div>
                             <div class="searchform">
-                                <form>
-                                    <input type="text" class="txt" name="s" placeholder="Type Keywords">
-                                    <input type="submit" value="search" class="btn btn-sm">
-                                </form>
+                                <form method="GET" action="<?php echo base_url('search/');?>">
+                            <input type="text" class="txt" name="q" placeholder="Type Keywords" minlength="3" required>
+                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+                            <input type="submit" value="search" class="btn btn-sm">
+                        </form>
                             </div><!-- end searchform -->
                         </div><!-- end search widget -->
 
-                        <div class="widget post-type-widget">
-                            <div class="widget-title-outer">
-                                <h3 class="widget-title">Berita Terbaru</h3>
-                            </div>
-                            <ul>
-                                                            <li>
-                                    <span class="post-category">
-                                        <a href="#">Wisata Kuliner</a>
-                                    </span>
-                                    <figure class="post-thumbnail">
-                                        <a href="45"><img src="http://tambahrejo.desa.id/upload/image/thumb/thumb_Screenshot_10.png.jpg" alt="" width="110px" height="80px" style="object-fit: cover;"></a>
-                                    </figure>
-                                    <h2 class="post-title">
-                                        <a href="45">
-                                        Mahasiswa PKPM Darmajaya Ajak Warga Berwirausaha Bakso Jamur Tiram</a>
-                                    </h2>
-                                </li>
-                                                                <li>
-                                    <span class="post-category">
-                                        <a href="#">Berita</a>
-                                    </span>
-                                    <figure class="post-thumbnail">
-                                        <a href="44"><img src="http://tambahrejo.desa.id/upload/image/thumb/thumb_IMG_20160821_065402.jpg" alt="" width="110px" height="80px" style="object-fit: cover;"></a>
-                                    </figure>
-                                    <h2 class="post-title">
-                                        <a href="44">
-                                        Jalan Sehat </a>
-                                    </h2>
-                                </li>
-                                                                <li>
-                                    <span class="post-category">
-                                        <a href="#">Ekonomi</a>
-                                    </span>
-                                    <figure class="post-thumbnail">
-                                        <a href="43"><img src="http://tambahrejo.desa.id/upload/image/thumb/thumb_P_20160813_115752_1_p.jpg" alt="" width="110px" height="80px" style="object-fit: cover;"></a>
-                                    </figure>
-                                    <h2 class="post-title">
-                                        <a href="43">
-                                        Sarasehan Mahasiswa PKPM IBI Darmajaya</a>
-                                    </h2>
-                                </li>
-                                                                <li>
-                                    <span class="post-category">
-                                        <a href="#">Berita</a>
-                                    </span>
-                                    <figure class="post-thumbnail">
-                                        <a href="42"><img src="http://tambahrejo.desa.id/upload/image/thumb/thumb_20160701sideka.jpg" alt="" width="110px" height="80px" style="object-fit: cover;"></a>
-                                    </figure>
-                                    <h2 class="post-title">
-                                        <a href="42">
-                                        Kemenkominfo Minati Pengembangan Aplikasi SIDesa Darmajaya</a>
-                                    </h2>
-                                </li>
-                                                                <li>
-                                    <span class="post-category">
-                                        <a href="#">Berita</a>
-                                    </span>
-                                    <figure class="post-thumbnail">
-                                        <a href="41"><img src="http://tambahrejo.desa.id/upload/image/thumb/thumb_P_20160629_105419.jpg" alt="" width="110px" height="80px" style="object-fit: cover;"></a>
-                                    </figure>
-                                    <h2 class="post-title">
-                                        <a href="41">
-                                        Langsung dari Kementerian Kominfo</a>
-                                    </h2>
-                                </li>
-                                                            </ul>
-                            </div><!-- end widget -->
-
                             <div class="widget widget_categories">
                                 <div class="widget-title-outer">
-                                    <h3 class="widget-title">Kategori Berita</h3>
+                                    <h3 class="widget-title">Kategori Buku</h3>
                                 </div>
                                 <ul>
+                                <?php if (kategori_header() != NULL ) {
+                                    foreach (kategori_header() as $buku) {
+                                   ?>
                                     <li>
-                                        <a class="pull-left" href="#">Politik</a>
-                                        <span class="pull-right">17</span>
+                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $buku->slug_kategori ?>/"><?php echo $buku->nama_kategori ?></a>
                                     </li>
+                                    <?php  }
+                                }   ?>
                                     <li>
-                                        <a class="pull-left" href="#">Bisnis</a>
-                                        <span class="pull-right">14</span>
-                                    </li>
-                                    <li>
-                                        <a class="pull-left" href="#">Ekonomi</a>
-                                        <span class="pull-right">10</span>
-                                    </li>
-                                    <li>
-                                        <a class="pull-left" href="#">Pemerintahan</a>
-                                        <span class="pull-right">8</span>
-                                    </li>
-                                    <li>
-                                        <a class="pull-left" href="#">Hiburan</a>
-                                        <span class="pull-right">6</span>
+                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/">Lainnya...</a>
                                     </li>
                                 </ul>
-                            </div><!-- end widget -->
-
-                            <div class="widget">
-                                <div class="widget-title-outer">
-                                    <h3 class="widget-title">Tag Berita</h3>
-                                </div>
-                                <div class="tagcloud">
-                                    <a href="#">politik</a>
-                                    <a href="#">pemerintahan</a>
-                                    <a href="#">bisnis</a>
-                                    <a href="#">ekonomi</a>
-                                    <a href="#">hiburan</a>
-                                    <a href="#">olahraga</a>
-                                    <a href="#">pengumuman</a>
-                                </div>
                             </div><!-- end widget -->
 
                     </div><!-- end #secondary -->
@@ -213,6 +121,6 @@
             </div><!-- end container -->
         </div>
 <?php
-                            else:
-                                     ?>
-                            <?php endif; ?>
+else:
+?>
+<?php endif; ?>

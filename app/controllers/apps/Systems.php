@@ -47,7 +47,11 @@ class Systems extends CI_Controller{
                 'site_title'    => $this->input->post('site_title'),
                 'site_footer'   => $this->input->post('site_footer'),
                 'keywords'      => $this->input->post('keywords'),
-                'descriptions'  => $this->input->post('descriptions')
+                'descriptions'  => $this->input->post('descriptions'),
+                'tentang'       => $this->input->post('about'),
+                'no_tlp'        => $this->input->post('phone'),
+                'email'         => $this->input->post('email'),
+                'alamat'        => $this->input->post('address')
             );
             $this->db->update('tbl_systems', $update, $id);
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">

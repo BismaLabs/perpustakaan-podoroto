@@ -35,4 +35,5 @@ class Buku extends CI_Controller {
         $this->load->view('public/layout/home/detail');
         $this->load->view('public/part/footer');
 	}
+
 }

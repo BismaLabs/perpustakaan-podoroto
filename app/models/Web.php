@@ -23,6 +23,7 @@ class Web extends CI_Model{
     function select_buku()
     {
     $this->db->order_by('kode_buku DESC');
+    $this->db->limit(8, 0);
     return $this->db->get('tbl_buku');
     }
 
@@ -115,6 +116,7 @@ class Web extends CI_Model{
         }
     }
 
+
     function select_buku_populer()
     {
         // $query = $this->db->query("SELECT * FROM tbl_buku WHERE views > 50");
@@ -124,6 +126,42 @@ class Web extends CI_Model{
         {
             return $query->row();
         }else
+        {
+            return NULL;
+        }
+    }
+
+    //index search buku
+    public function search_index_buku($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_buku')
+            ->limit($limit,$offset)
+            ->like('judul_buku',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('kode_buku','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //total search buku
+    function total_search_buku($keyword)
+    {
+        $query = $this->db->like('judul_buku',$keyword)->get('tbl_buku');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
         {
             return NULL;
         }

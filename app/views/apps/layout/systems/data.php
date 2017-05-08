@@ -50,6 +50,22 @@
                             <label for="artilces">Meta Descriptions</label>
                             <textarea class="form-control" name="descriptions" rows="6" placeholder="Enter Meta Descriptions"><?php echo systems('descriptions') ?></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="artilces">Tentang Situs</label>
+                            <textarea class="form-control" name="about" rows="6" placeholder="Enter About Web"><?php echo systems('tentang') ?></textarea> 
+                        </div>
+                        <div class="form-group">
+                            <label for="artilces">Alamat</label>
+                            <textarea class="form-control" name="address" rows="6" placeholder="Enter Address"><?php echo systems('alamat') ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="artilces">No Telp</label>
+                            <input class="form-control" name="phone" rows="6" placeholder="Enter Phone Number" value="<?php echo systems('no_tlp') ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="artilces">Email</label>
+                            <input class="form-control" name="email" rows="6" placeholder="Enter Email" value="<?php echo systems('email') ?>">
+                        </div>
                         <div class="submit">
                             <button type="submit" class="btn  bg-olive btn-flat btn-save btn-fill"><i class="fa fa-save"></i> Simpan</button>
                             <button type="reset" class="btn bg-orange btn-flat btn-fill"><i class="fa fa-repeat"></i> Reset</button>

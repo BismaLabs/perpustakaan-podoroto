@@ -7,7 +7,7 @@
                         <div class="widget-title-outer">
                             <h3 class="widget-title">Tentang Perpustakaan</h3>
                         </div>
-                        <p id="tentang">Perpsutakaan Online adalah sebuah media perpustakaan yang dikelola secara online untuk berbagai alternatif bahan bacaan bagi mereka yang intens dengan internet.</p>
+                        <p id="tentang"><?php echo systems('tentang') ?></p>
                     </div><!-- end inner -->
                 </div><!-- end widget -->
             </div>
@@ -22,18 +22,18 @@
                             <tr>
                                 <td style='padding: 0 5px;'><strong>Lokasi</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
-                                <td id='alamatlengkap' style='padding: 0 5px;'>Jl. Raya Pasar Garu No.1 Kec. Kesamben, Kab. Jombang 61484.</td>
+                                <td id='alamatlengkap' style='padding: 0 5px;'><?php echo systems('alamat') ?></td>
                             </tr>
                             <tr>
                                 <td style='padding: 0 5px;'><strong>Telp</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
-                                <td style='padding: 0 5px;'>081274133000</td>
+                                <td style='padding: 0 5px;'><?php echo systems('no_tlp') ?></td>
                             </tr>
                             <tr>
 
                                 <td style='padding: 0 5px;'><strong>Email</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
-                                <td style='padding: 0 5px;'><a href='mailto:perpus@podoroto.desa.id'>perpus@podoroto.desa.id</a></td>
+                                <td style='padding: 0 5px;'><?php echo systems('email') ?></td>
                             </tr>								</table>
                     </div><!-- end inner -->
                 </div><!-- end widget -->
