@@ -106,6 +106,7 @@ class Apps extends CI_Model{
         }
     }
 
+    //fungsi index slider
     public function search_index_slider($keyword,$limit,$offset)
     {
         $query = $this->db->select('*')
@@ -126,7 +127,7 @@ class Apps extends CI_Model{
             return NULL;
         }
     }
-
+    //fungsi edit slider
     function edit_slider($id_slide)
     {
         $id_slide  =  array('id_slide'=> $id_slide);
@@ -191,6 +192,65 @@ class Apps extends CI_Model{
     {
         $id_user  =  array('id_user'=> $id_user);
         return $this->db->get_where('tbl_users', $id_user);
+    }
+
+    //fungsi anggota
+    function count_anggota()
+    {
+        return $this->db->get('tbl_anggota');
+    }
+
+    function index_anggota($halaman,$batas)
+    {
+        $query = "SELECT * FROM tbl_anggota  ORDER BY no_anggota DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function search_anggota_json()
+    {
+        $query = $this->db->get('tbl_anggota');
+        return $query->result();
+    }
+
+    function total_search_anggota($keyword)
+    {
+        $query = $this->db->like('nama_lengkap',$keyword)->get('tbl_anggota');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_anggota($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_anggota')
+            ->limit($limit,$offset)
+            ->like('nama_lengkap',$keyword)
+            ->or_like('no_anggota', $keyword)
+            ->limit($limit,$offset)
+            ->order_by('no_anggota','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function edit_anggota($id_anggota)
+    {
+        $id_anggota  =  array('no_anggota'=> $id_anggota);
+        return $this->db->get_where('tbl_anggota', $id_anggota);
     }
 
        // fungsi pages

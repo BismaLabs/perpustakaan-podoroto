@@ -33,7 +33,7 @@ class Web extends CI_Model{
     return $this->db->get('tbl_kategori');
     }
 
-     function select_slider()
+    function select_slider()
     {
     $this->db->order_by('id_slide DESC');
     return $this->db->get('tbl_slider');

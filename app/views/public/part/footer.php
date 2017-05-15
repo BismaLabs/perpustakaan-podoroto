@@ -30,7 +30,6 @@
                                 <td style='padding: 0 5px;'><?php echo systems('no_tlp') ?></td>
                             </tr>
                             <tr>
-
                                 <td style='padding: 0 5px;'><strong>Email</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
                                 <td style='padding: 0 5px;'><?php echo systems('email') ?></td>
@@ -49,8 +48,13 @@
                             <?php  if (buku_populer() != NULL) {
                                     foreach (buku_populer() as $hasil) {
                             ?>
-                            <li>
-                                    <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $hasil->foto ?>" width="50px" height="auto" alt="" style="object-fit: cover;" >
+                            <!-- <li>
+                                    <img src="<?php //echo base_url() ?>resources/images/buku/<?php //echo $hasil->foto ?>" width="50px" height="auto" alt="" style="object-fit: cover;" >
+                            </li> -->
+                             <li>
+                                <a href="#" class="open_x" id="7">
+                                    <a href="<?php echo base_url() ?>resources/images/buku/<?php echo $hasil->foto ?>" data-lightbox="image-1" data-title="<?php echo $hasil->judul_buku ?>"><img src="<?php echo base_url() ?>resources/images/buku/<?php echo $hasil->foto ?>" width="100px" height="100px" alt="" class="img-rounded" style="object-fit: cover;" ></a>
+                                </a><!-- thumb 01 -->
                             </li>
                             <?php
                             }}
@@ -61,25 +65,14 @@
             </div><!-- end widget -->
         </div>
     </div>
-    </div>
-</footer>
-<div class="footer-link">
+    </footer>
+    <div class="footer-credit">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <p class="text-center copy">
-                    <a target='_blank' href='#'> Desa Podoroto</a> | <a target='_blank' href='#'>Kabupaten Jombang</a> | <a target='_blank' href='#'>Provisnsi Jawa Timur</a> </p>
+            <div class="col-md-8">
+                <p class="copy"><?php echo systems('site_footer') ?> Maintenance By  <a target="_blank" style="text-decoration: none" href="http://bismalabs.co.id/">Bisma Labs</a></p>
             </div><!-- end column -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end footer-credit -->
-<div class="footer-credit">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="copy">COPYRIGHT &copy; 2016 <a href="<?php echo base_url() ?>" class="namadesa">Perpustakaan Desa Podoroto</a> Maintenance By  <a target="_blank" href="http://bismalabs.co.id/">Bisma Labs</a></p>
-            </div><!-- end column -->
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <ul class="list-socmed">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-facebook"></i></a>
@@ -99,8 +92,9 @@
                 </ul>
             </div>
         </div>
+    </div>
 </div>
-</div>
+
 <script src="<?php echo base_url() ?>resources/public/js/vendor/jquery-1.11.1.min.js"></script>
 <script src="<?php echo base_url() ?>resources/public/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>resources/public/js/plugin.js"></script>
@@ -111,5 +105,6 @@
 <script type="text/javascript" src="<?php echo base_url() ?>resources/public/js/fancybox2/jquery.fancybox-thumbs.js"></script>
 <script src="<?php echo base_url() ?>resources/public/parts/js/global.js"></script>
 <script src="<?php echo base_url() ?>resources/public/js/weather.js" type="text/javascript"></script>
+<script src="<?php echo base_url() ?>resources/public/js/lightbox.min.js" type="text/javascript"></script>
 </body>
 </html>

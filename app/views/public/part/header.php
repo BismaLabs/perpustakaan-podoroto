@@ -27,6 +27,7 @@
     <link href="<?php echo base_url() ?>resources/public/css/weather.css" rel="stylesheet"/>
     <link href="<?php echo base_url() ?>resources/public/css/styles.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>resources/public/css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>resources/public/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #f1f1f1">
 <div id="page" class="hfeed site">
@@ -42,7 +43,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="logo navbar-brand">
-                        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>resources/images/logo.png" title="Perpustakaan Desa Podoroto"> 
+                        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>resources/public/images/logo copy.png" title="Perpustakaan Desa Podoroto"> 
                         </a>
                     </div>
                     <nav id="primary-navigation" class="site-navigation navbar-collapse collapse" role="navigation">
@@ -71,12 +72,11 @@
                                 </li>
                                 <li><a href="<?php echo base_url() ?>populer/">Populer</a></li>
                                 <li><a href="<?php echo base_url() ?>terbaru/">Terbaru</a></li>
-                                <li><a target="_blank" href="#">Website Desa</a></li>
                             </ul>
                         </div>
                     </nav>
                     <div class="appoinment-header">
-                        <a href="#footer-section" class="btn btn-md btn-default">Kontak Desa</a>
+                        <a href="#" class="btn btn-md btn-default">Website Desa</a>
                     </div>
                 </div>
             </div>

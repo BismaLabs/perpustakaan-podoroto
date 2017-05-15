@@ -24,7 +24,7 @@ class Search extends CI_Controller
             $offset = (isset($_GET['page'])) ? $this->security->xss_clean($_GET['page']) : 0 ;
             $total  = $this->web->total_search_buku($keyword);
             //config pagination
-            $config['base_url'] = base_url().'buku/search?q='.$keyword;
+            $config['base_url'] = base_url().'search?q='.$keyword;
             $config['total_rows'] = $total;
             $config['per_page'] = $limit;
             $config['page_query_string'] = TRUE;
@@ -53,7 +53,7 @@ class Search extends CI_Controller
             $this->load->view('public/layout/home/search');
             $this->load->view('public/part/footer');
         }else{
-            redirect('home/');
+            redirect('search/');
         }
     }
 }

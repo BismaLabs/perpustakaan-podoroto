@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller {
         {
 
             $data = array(
-                'title' => 'Dashboard ',
+                'title' => 'Dashboard',
                 'dashboard' => TRUE,
                 'js_ready' => "GetToday('" . date("Y-m-d") . "')"
             );

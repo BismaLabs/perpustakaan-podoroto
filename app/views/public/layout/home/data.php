@@ -1,14 +1,14 @@
 <div class="blog-section">
     <div class="container">
         <div class="row">
-            <div class="centered-title">
-                <h3>BUKU TERSEDIA</h3>
+            <div class="centered-title" style="padding-top: 10px">
+                <h3><?php echo $title_page ?></h3>
             </div>
 
             <div class="col-md-12" style="margin-bottom: 20px">
                 <?php echo $this->session->flashdata('notif') ?>
                 <div class="search-events" style="text-align: center">
-                    <form method="GET" action="<?php echo base_url('seacrh/');?>" style="margin-top: 10px">
+                    <form method="GET" action="<?php echo base_url('search/');?>" style="margin-top: 10px">
                         <div class = "input-group">
                             <input type = "text" name = "q" class = "form-control input-lg" placeholder="Cari Buku" autocomplete="off" id="articles" minlength="3" required>
                             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
@@ -25,14 +25,14 @@
             <?php
                 foreach($data_buku->result_array() as $buku){
                             //check lenght title
-            if(strlen($buku['judul_buku'])<30)
+            if(strlen($buku['judul_buku'])<50)
             {
                 $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/">
                             '. $buku['judul_buku'].'
                           </a>';
             }else{
                 $judul = '<a href="'. base_url().'buku/'.$buku['slug'].'/" title="'.$buku['judul_buku'].'">
-                            '. substr($buku['judul_buku'], 0, 20).'....
+                            '. substr($buku['judul_buku'], 0, 40).'....
                           </a>';
             }
             ?>
@@ -48,7 +48,7 @@
                                 </h2>
                             </div><!-- end entry-header -->
                             <div class="entry-content">
-                                <a href="<?php echo base_url() ?>buku/<?php echo $buku['slug'] ?>/" class="more"> Detail Buku <i class="fa fa-arrow-circle-right"></i></a>
+                                <a style="text-decoration: none;" href="<?php echo base_url() ?>buku/<?php echo $buku['slug'] ?>/" class="more"> Detail Buku <i class="fa fa-arrow-circle-right"></i></a>
                             </div><!-- entry-content -->
                              <div class="entry-content">
                         </div>

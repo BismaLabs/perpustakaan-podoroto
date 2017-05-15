@@ -55,13 +55,13 @@
                                 <div class="col-md-12">
                                     <hr>
                                     <strong><i class="fa fa-file-text-o margin-r-5"></i> Deskripsi Buku</strong>
-                                    <p><?php echo $data_buku->deskripsi ?></p>
+                                    <?php echo $data_buku->deskripsi ?>
                                 </div>
                                 </div><!-- end entry-content -->
                                 </div><!-- end inner -->
                         </div><!-- end #content -->
                          <div class="related-content">
-                                <h2>Buku Terkait</h2>
+                                <h2><i class="fa fa-book margin-r-5"></i> Buku Terkait</h2>
                                 <div class="row">
                                 <?php if (buku_terkait($data_buku->kategori_id, $data_buku->slug) != NULL) {
                                     foreach (buku_terkait($data_buku->kategori_id, $data_buku->slug) as $param) {
@@ -71,7 +71,7 @@
                                             <img src="<?php echo base_url() ?>resources/images/buku/<?php echo $param->foto ?>" style="width: 100%; height: auto; object-fit: cover;">
                                         </figure>
                                         <div class="related-title">
-                                            <h3><a href="<?php echo base_url() ?>buku/<?php echo $param->slug ?>"><?php echo $param->judul_buku ?></a></h3>
+                                            <h3><a href="<?php echo base_url() ?>buku/<?php echo $param->slug ?>" style="text-decoration: none;"><?php echo $param->judul_buku ?> <i class="fa fa-arrow-circle-right"></i></a></h3>
                                         </div>
                                     </div> <!-- end column -->
                                     <?php  }
@@ -90,7 +90,7 @@
                                 <form method="GET" action="<?php echo base_url('search/');?>">
                             <input type="text" class="txt" name="q" placeholder="Type Keywords" minlength="3" required>
                             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
-                            <input type="submit" value="search" class="btn btn-sm">
+                            <input type="submit" value="Cari" class="btn btn-sm">
                         </form>
                             </div><!-- end searchform -->
                         </div><!-- end search widget -->
@@ -104,7 +104,7 @@
                                     foreach (kategori_header() as $buku) {
                                    ?>
                                     <li>
-                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $buku->slug_kategori ?>/"><?php echo $buku->nama_kategori ?></a>
+                                        <a class="pull-left" href="<?php echo base_url() ?>kategori/<?php echo $buku->slug_kategori ?>/"><i class="fa fa-book margin-r-5"></i> <?php echo $buku->nama_kategori ?></a>
                                     </li>
                                     <?php  }
                                 }   ?>
