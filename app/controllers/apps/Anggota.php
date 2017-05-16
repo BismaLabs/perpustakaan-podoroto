@@ -367,22 +367,43 @@ class Anggota extends CI_Controller
         }
     }
 
-    public function getnotes($no_anggota = '')
+    public function delete()
     {
-        if (empty(trim($no_anggota))) {
+        if ($this->apps->apps_id()) 
+        {
+            $id     = $this->encryption->decode($this->uri->segment(4));
+            $query  = $this->db->query("SELECT no_anggota, foto FROM tbl_anggota WHERE no_anggota = '$id'")->row();
+            unlink(realpath('resources/images/anggota/'.$query->thumbnail));
+            unlink(realpath('resources/images/anggota/thumb/'.$query->foto));
+            $key['no_anggota'] = $id;
+            $this->db->delete("tbl_anggota", $key);
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+                                                                <i class="fa fa-check"></i> Data Berhasil Dihapus.
+                                                            </div>');
+            //redirect halaman
+            redirect('apps/anggota?source=delete&utf8=✓');
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
+    public function getnotes($kode_anggota='') {
+        if (empty(trim($kode_anggota))) {
             return '';
             exit();
         }
-        $ketemu = false;
-        $urut = 1;
-        while ($ketemu == false) {
-            $kode_anggota = $no_anggota . '-' . sprintf("%03d", $urut);
-            $sql = "SELECT no_anggota FROM tbl_anggota where no_anggota ='$no_anggota'";
-            $jml = $this->db->query($sql)->num_rows();
-            if ($jml == 0) { //Jika nomor tes belum dipakai
-                $ketemu = true;
-                return $kode_anggota;
-            } else { //Jika nomor tes sudah dipakai
+        $ketemu=false;
+        $urut=1;
+        while ($ketemu==false) {
+            $no_anggota = $kode_anggota.'-'.sprintf("%03d", $urut);
+            $sql="SELECT no_anggota FROM tbl_anggota where no_anggota ='$no_anggota'";
+            $jml  = $this->db->query($sql)->num_rows();
+            if ($jml==0) { //Jika nomor tes belum dipakai
+                $ketemu=true;
+                return $no_anggota;
+            }
+            else { //Jika nomor tes sudah dipakai
                 $urut++;
             }
         }
