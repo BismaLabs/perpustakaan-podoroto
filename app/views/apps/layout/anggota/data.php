@@ -16,11 +16,11 @@
                 <?php echo $this->session->flashdata('notif') ?>
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-users"></i> Data Anggota</h3>
+                        <h3 class="box-title"><i class="fa fa-male"></i> Data Anggota</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form method="GET" action="<?php //echo base_url('apps/buku/search');?>" style="margin-top: 10px">
+                        <form method="GET" action="<?php echo base_url('apps/anggota/search');?>" style="margin-top: 10px">
                             <div class = "input-group">
                            <span class = "input-group-btn">
                               <a href="<?php echo base_url('apps/anggota/add?source=add&utf8=✓') ?>" class = "btn btn-default btn-md" type = "button">
@@ -81,7 +81,7 @@
                                     Maaf!....data tidak ada didatabase sistem
                                 </div>
                                 <div class="reload" style="text-align: center;margin-bottom: 7px">
-                                    <a  href="<?php echo base_url('apps/buku?source=reload&utf8=✓') ?>" class="btn btn-danger btn-reset btn-fill" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Reloading..."><i class="fa fa-repeat"></i> Reload Page</a>
+                                    <a  href="<?php echo base_url('apps/anggota?source=reload&utf8=✓') ?>" class="btn btn-danger btn-reset btn-fill" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Reloading..."><i class="fa fa-repeat"></i> Reload Page</a>
                                 </div>
                             <?php endif; ?>
                         </div>
