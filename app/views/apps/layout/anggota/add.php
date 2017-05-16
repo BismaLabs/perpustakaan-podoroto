@@ -18,7 +18,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="add-user">
+                        <div>
                             <?php
                             $attributes = array('id' => 'frm_login');
                             echo form_open_multipart('apps/anggota/save?source=header&utf8=✓', $attributes)
@@ -109,6 +109,7 @@
                             <label>No Telp/HP</label>
                             <input type="text" name="no_telp" class="form-control" required>
                         </div>
+                        <br>
                             <div class="submit" style="margin-bottom: 7px">
                                 <button type="submit" class="btn  bg-olive btn-flat btn-save btn-fill"><i class="fa fa-save"></i> Simpan</button>
                                 <button type="reset" class="btn bg-orange btn-flat btn-fill"><i class="fa fa-repeat"></i> Reset</button>

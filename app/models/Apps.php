@@ -133,7 +133,6 @@ class Apps extends CI_Model{
         $id_slide  =  array('id_slide'=> $id_slide);
         return $this->db->get_where('tbl_slider', $id_slide);
     }
-        
 
     /* fungsi user */
     function count_users()

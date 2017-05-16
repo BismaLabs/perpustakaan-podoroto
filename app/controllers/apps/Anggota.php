@@ -85,7 +85,7 @@ class Anggota extends CI_Controller
                 $data = array(
                     'title' => 'Data Anggota',
                     'anggota' => TRUE,
-                    'data_anggota' => $this->apps->search_index_buku(strip_tags($keyword), $limit, $offset),
+                    'data_anggota' => $this->apps->search_index_anggota(strip_tags($keyword), $limit, $offset),
                     'paging' => $this->pagination->create_links()
                 );
                 if ($data['data_anggota'] != NULL) {
@@ -125,6 +125,29 @@ class Anggota extends CI_Controller
         }
        
     }
+
+    public function edit($id_anggota){
+        if ($this->apps->apps_id()) {
+            //Get no_anggota from Url
+            $id_anggota = $this->encryption->decode($this->uri->segment(4));
+
+            //Create Data Array
+            $data = array('title' => 'Edit Anggota',
+                        'anggota' => TRUE,
+                        'type'    => 'edit',
+                        'data_anggota'  => $this->apps->edit_anggota($id_anggota)->row_array()
+                        );
+            //load view edit
+            //load view with data
+            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/sidebar');
+            $this->load->view('apps/layout/anggota/edit');
+            $this->load->view('apps/part/footer');
+            }else{
+                show_404();
+                return FALSE;
+            }
+        }
 
     public function save()
     {
@@ -211,7 +234,6 @@ class Anggota extends CI_Controller
                             'no_telp'           => $this->input->post("no_telp"),
                             'foto'              => $data_upload['file_name'],
                             'created_at'        => date("Y-m-d H:i:s"),
-                            'updated_at'        => date("Y-m-d H:i:s")
                         );
                         $this->db->insert("tbl_anggota", $insert);
                         //deklarasi session flashdata
