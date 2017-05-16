@@ -42,7 +42,7 @@
                              <div class="form-group">
                             <label > Jenis Kelamin</label>
                             <select class="form-control" name="jenis_kelamin" required>
-                            <option selected="<?php echo $data_anggota['jenis_kelamin'] ?>"><?php echo $data_anggota['nama_lengkap'] ?></option>
+                            <option selected="<?php echo $data_anggota['jenis_kelamin'] ?>"></option>
                                 <option value="">-- Pilih --</option>
                                 <option value="Laki-laki">Laki-laki</option>
                                 <option value="Perempuan">Perempuan</option>

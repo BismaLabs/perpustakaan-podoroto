@@ -43,7 +43,7 @@
                                 <tr>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-list-ul"></i> NO.</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-barcode"></i> NO ANGGOTA</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-users"></i> NAMA LENGKAP
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-user-circle"></i> NAMA LENGKAP
                                     <th class="text-center" style="color: #000;"><i class="fa fa-folder"></i> JENIS KELAMIN</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-database"></i> ALAMAT</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>

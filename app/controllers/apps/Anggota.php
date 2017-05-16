@@ -23,7 +23,7 @@ class Anggota extends CI_Controller
         if ($this->apps->apps_id()) {
 
             //config pagination
-            $config['base_url'] = base_url() . 'apps/buku/index/';
+            $config['base_url'] = base_url() . 'apps/anggota/index/';
             $config['total_rows'] = $this->apps->count_anggota()->num_rows();
             $config['per_page'] = 10;
             //instalasi paging
