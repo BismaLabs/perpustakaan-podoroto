@@ -252,6 +252,12 @@ class Apps extends CI_Model{
         return $this->db->get_where('tbl_anggota', $id_anggota);
     }
 
+    function select_anggota()
+        {
+        $this->db->order_by('no_anggota ASC');
+        return $this->db->get('tbl_anggota');
+        }
+
        // fungsi pages
         function count_pages()
         {

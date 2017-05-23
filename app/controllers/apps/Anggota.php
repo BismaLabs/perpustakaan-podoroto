@@ -150,6 +150,27 @@ class Anggota extends CI_Controller
         }
     }
 
+    public function detail($id_anggota){
+    if ($this->apps->apps_id()) {
+        //Get No_anggota from url 
+
+        $id_anggota = $this->encryption->decode($this->uri->segment(4));
+
+        //Create Data Array
+        $data = array('title' => 'Detail Anggota',
+        'anggota' => TRUE,
+        'data_anggota'  => $this->apps->select_anggota($id_anggota)->row_array());
+
+            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/sidebar');
+            $this->load->view('apps/layout/anggota/detail');
+            $this->load->view('apps/part/footer');
+        } else {
+            show_404();
+            return FALSE;
+        }
+    }
+
     public function save()
     {
         if($this->apps->apps_id())

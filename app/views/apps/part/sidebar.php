@@ -29,7 +29,7 @@
             <li <?php if(isset($dashboard)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/dashboard/"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li <?php if(isset($anggota)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/anggota/"><i class="fa fa-male"></i> <span>Data Anggota</span></a></li>
             <li <?php if(isset($buku)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/buku/"><i class="fa fa-book"></i> <span>Data Buku</span></a></li>
-            <li <?php if(isset($peminjam)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/peminjam/"><i class="fa fa-calendar-check-o"></i> <span>Data Peminjam</span></a></li>
+            <li <?php if(isset($peminjam)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/peminjaman/"><i class="fa fa-calendar-check-o"></i> <span>Data Peminjam</span></a></li>
             <li <?php if(isset($kategori)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/kategori/"><i class="fa fa-folder"></i> <span>Kategori Buku</span></a></li>
             <li <?php if(isset($laporan)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/laporan/"><i class="fa fa-print"></i> <span>Cetak Laporan</span></a></li>
             <li <?php if(isset($slider)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/slider/"><i class="fa fa-file-image-o"></i> <span>Slider Website</span></a></li>

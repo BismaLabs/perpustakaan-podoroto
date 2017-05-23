@@ -60,7 +60,7 @@
                                         <td class="text-center"><?php echo $hasil->no_anggota ?></td>
                                         <td style="text-transform: uppercase" class="text-center"> <?php echo $hasil->nama_lengkap ?></td>
                                         <td class="text-center"> <?php echo $hasil->jenis_kelamin ?></td>
-                                        <td class="text-center"> <?php echo $hasil->alamat ?></td>
+                                        <td class="text-center"> <?php echo substr($hasil->alamat, 0, 30) ?> ....</td>
                                         <td class="text-center">
                                             <a class="badge badge-primary" style="background-color: #060884;" data-toggle="tooltip" data-placement="top" title="Lihat Detail" href="<?php echo base_url() ?>apps/anggota/detail/<?php echo $this->encryption->encode($hasil->no_anggota) ?>"><i class="fa fa-external-link"></i> Detail</a>
                                             <a class="badge badge-success" style="background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url() ?>apps/anggota/edit/<?php echo $this->encryption->encode($hasil->no_anggota) ?>"><i class="fa fa-pencil"></i> Edit</a>

@@ -161,7 +161,6 @@ class Buku extends CI_Controller
             $data = array(
                 'title'          => 'Detail Buku',
                 'buku'           => TRUE,
-                'type'           => 'edit',
                 'data_buku'      => $this->apps->edit_buku($kode_buku)->row_array(),
                 'select_kat'     => $this->apps->select_kategori()
             );
