@@ -1,10 +1,6 @@
 <div class="blog-section">
     <div class="container">
-        <div class="row">
-            <div class="centered-title" style="padding-top: 10px">
-                <h3><?php echo $title_page ?></h3>
-            </div>
-
+        <div class="row" style="padding-top: 50px">
             <div class="col-md-12" style="margin-bottom: 20px">
                 <?php echo $this->session->flashdata('notif') ?>
                 <div class="search-events" style="text-align: center">

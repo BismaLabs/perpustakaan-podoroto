@@ -193,6 +193,65 @@ class Apps extends CI_Model{
         return $this->db->get_where('tbl_users', $id_user);
     }
 
+    /* fungsi peminjaman */
+    function count_pinjam()
+    {
+        return $this->db->get('tbl_pinjam');
+    }
+
+    function index_pinjam($halaman,$batas)
+    {
+        $query = "SELECT * FROM tbl_pinjam ORDER BY id_pinjam DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function search_pinjam_json()
+    {
+        $query = $this->db->get('tbl_pinjam');
+        return $query->result();
+    }
+
+    function total_search_pinjam($keyword)
+    {
+        $query = $this->db->like('nama',$keyword)->get('tbl_pinjam');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_pinjam($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_pinjam')
+            ->limit($limit,$offset)
+            ->like('nama',$keyword)
+            ->or_like('kode_anggota', $keyword)
+            ->limit($limit,$offset)
+            ->order_by('id_pinjam','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function edit_pinjam($id_user)
+    {
+        $id_user  =  array('id_pinjam'=> $id_user);
+        return $this->db->get_where('tbl_pinjam', $id_user);
+    }
+
     //fungsi anggota
     function count_anggota()
     {

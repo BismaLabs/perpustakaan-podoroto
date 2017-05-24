@@ -7215,7 +7215,8 @@ table tbody {
   background: #00695C;
   padding: 40px 0 20px;
   color: #fff;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 12px;
   clear: both;
 }
 .footer-credit:before {
