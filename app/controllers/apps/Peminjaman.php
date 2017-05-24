@@ -136,13 +136,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $id['id_pinjam'] = $this->encryption->decode($this->input->post("id_pinjam"));
             if ($type == 'add') {
                             $insert = array(
-                            'nama'        => $this->input->post("nama"),
-                            'kode_anggota'     => $this->input->post("no_anggota"),
-                            'kode_buku'         => $this->input->post("judul_buku"),
-                            'kategori_buku'       => $this->input->post("kategori_buku"),
+                            'nama'     => $this->input->post("nama_lengkap"),
+                            'kode_buku'         => $this->input->post("kode_buku"),
                             'tgl_pinjam'         => $this->input->post("tgl_pinjam"),
-                            'paraf_pinjam'          => $this->input->post("paraf_pinjam"),
-                            'tgl_kembali'      => $this->input->post("tgl_kembali"),
+                            'tgl_kembali'      => $this->input->post("tgl_kembali")
                         );
                         $this->db->insert("tbl_pinjam", $insert);
                         //deklarasi session flashdata
@@ -157,7 +154,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </div>');
                         redirect('apps/peminjaman?source=add&utf8=✓');
                     }
-            }elseif ($type == 'edit') {} else {
+            }elseif ($type == 'edit') {
+                    $update = array(
+                            'nama'        => $this->input->post("nama"),
+                            'kode_anggota'     => $this->input->post("no_anggota"),
+                            'kode_buku'         => $this->input->post("judul_buku"),
+                            'kategori_buku'       => $this->input->post("kategori_buku"),
+                            'tgl_pinjam'         => $this->input->post("tgl_pinjam"),
+                            'tgl_kembali'      => $this->input->post("tgl_kembali"),
+                        );
+                        $this->db->update("tbl_pinjam", $update);
+                        //deklarasi session flashdata
+                        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+                                                                <i class="fa fa-check"></i> Data Berhasil Disimpan.
+                                                            </div>');
+                        //redirect halaman
+                        redirect('apps/peminjaman?source=add&utf8=✓');
+            } else {
                         $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
                                                                 <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan
                                                             </div>');
@@ -165,12 +178,48 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     }
                 }
 
-    public function edit()
+// public function edit()
+// {
+//      if ($this->apps->apps_id()) {
+
+//         $id     = $this->encryption->decode($this->uri->segment(4));
+//         $query = $this->db->query("UPDATE tbl_pinjam SET paraf_kembali='Dikembalikan' FROM tbl_pinjam WHERE id_pinjam = '$id'")->row();
+//          $key['id_pinjam'] = $id;
+//                         $this->db->update("tbl_pinjam", $key);
+//                         //deklarasi session flashdata
+//                         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+//                                                                 <i class="fa fa-check"></i> Data Berhasil Disimpan.
+//                                                             </div>');
+//                         //redirect halaman
+//                         redirect('apps/peminjaman?source=add&utf8=✓');
+//             } else {
+//                         $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
+//                                                                 <i class="fa fa-exclamation-circle"></i> Data Gagal Disimpan
+//                                                             </div>');
+//                         redirect('apps/peminjaman?source=add&utf8=✓');
+//                     }
+// }
+
+    public function confirm($id, $value)
     {
-        if($this->apps->apps_id())
-        {
-            
-        }else{
+        if ($this->apps->apps_id()) {
+            $id_pinjam = $this->encryption->decode($id);
+            $value = $this->encryption->decode($this->uri->segment(5));
+            //where id
+            $key['id_pinjam'] = $id_pinjam;
+            //update
+            $update = array(
+                'status' => $value
+            );
+            //update query
+            $this->db->update("tbl_pinjam", $update, $key);
+            //deklarasi session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                                                                <i class="fa fa-check"></i> Data Berhasil Diupdate.
+                                                            </div>');
+            //redirect halaman
+            redirect('apps/peminjaman?source=confirm&utf8=✓');
+        } else {
             show_404();
             return FALSE;
         }

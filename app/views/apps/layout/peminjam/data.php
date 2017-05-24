@@ -38,18 +38,32 @@
                                     <th class="text-center" style="color: #000;"><i class="fa fa-barcode"></i> NAMA PEMINJAM</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-book"></i> JUDUL BUKU</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-calendar"></i> TGL. PINJAM</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-check"></i> STATUS BUKU</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-calendar"></i> TGL. KEMBALI</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-check"></i> PARAF KEMBALI</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-info"></i> STATUS BUKU</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
                                 </thead>
                                 <?php
-                                if($data_pinjam != NULL):
-                                $no = $this->uri->segment(4) + 1;
-                                foreach($data_pinjam->result() as $hasil):
+                                if ($data_pinjam != NULL):
+                                     $no = $this->uri->segment(4) + 1;
+                                foreach ($data_pinjam->result() as $hasil):
 
-                                    ?>
+                                    if ($hasil->status == "0") {
+
+                                        $status = '<span class="badge badge-danger" style="background-color: #ff8412;"><i class="fa fa-circle-o-notch fa-spin"></i> Dipinjam</span>';
+
+                                        $update_status = '<a class="badge badge-primary" style="background-color: #1969bc;" data-toggle="tooltip" data-placement="top"  href="' . base_url() . 'apps/peminjaman/confirm/' . $this->encryption->encode($hasil->id_pinjam) . '/' . $this->encryption->encode('1') . '"><i class="fa fa-check-circle"></i> Update</a>';
+
+                                        $no_test = '';
+
+                                } elseif ($hasil->status == "1") {
+
+                                        $status = '<span class="badge badge-success" style="background-color: #358420;"><i class="fa fa-check-circle"></i> Dikembalikan</span>';
+
+                                        $update_status = '<a class="badge badge-primary" style="background-color: #1969bc;" data-toggle="tooltip" data-placement="top"  href="' . base_url() . 'apps/peminjaman/confirm/' . $this->encryption->encode($hasil->id_pinjam) . '/' . $this->encryption->encode('0') . '"><i class="fa fa-ban"></i> Update</a>';
+                                        $no_test = $hasil->status;
+                                }
+                                ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td class="text-center"> <?php echo $hasil->nama ?></td>
@@ -58,13 +72,16 @@
                                          $date = date_create($hasil->tgl_pinjam);
                                             echo date_format($date,"Y/F/d");
                                           ?></td>
-                                        <td class="text-center"><?php echo $hasil->paraf_pinjam ?></td>
                                         <td class="text-center"> <?php $date = date_create($hasil->tgl_kembali);
                                             echo date_format($date,"Y/F/d"); ?></td>
-                                        <td class="text-center"><?php echo $hasil->paraf_kembali ?></td>
+                                        <td class="text-center">
+                                             <?php echo $status ?>
+                                        </td>
                                         <td class="text-center">
                                             <a class="badge badge-primary" style="background-color: #060884;" data-toggle="tooltip" data-placement="top" title="Lihat Detail" href="<?php echo base_url() ?>apps/peminjaman/detail/<?php echo $this->encryption->encode($hasil->id_pinjam) ?>"><i class="fa fa-external-link"></i> Detail</a>
-                                            <a class="badge badge-success" style="background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url() ?>apps/peminjaman/edit/<?php echo $this->encryption->encode($hasil->id_pinjam) ?>"><i class="fa fa-pencil"></i> Edit</a>
+                                            <div class="btn-group pull-right" role="group">
+                                                <?php echo $update_status ?>
+                                            </div>
                                             <a class="badge badge-danger" style="background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="<?php echo base_url() ?>apps/peminjaman/delete/<?php echo $this->encryption->encode($hasil->id_pinjam) ?>"   onclick="return confirm('Anda Yakin Ingin Menghapus?');"><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
