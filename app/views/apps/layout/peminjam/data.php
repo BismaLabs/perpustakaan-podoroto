@@ -82,7 +82,7 @@
                                             <div class="btn-group pull-right" role="group">
                                                 <?php echo $update_status ?>
                                             </div>
-                                            <a class="badge badge-danger" style="background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="<?php echo base_url() ?>apps/peminjaman/delete/<?php echo $this->encryption->encode($hasil->id_pinjam) ?>"   onclick="return confirm('Anda Yakin Ingin Menghapus?');"><i class="fa fa-trash"></i> Delete</a>
+                                            <a class="badge badge-danger" style="background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="<?php echo base_url() ?>apps/peminjaman/delete/<?php echo $this->encryption->encode($hasil->id_pinjam) ?>"   onclick="return confirm('are you sure?')"><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <?php
