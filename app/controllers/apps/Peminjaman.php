@@ -138,8 +138,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             $insert = array(
                             'nama'     => $this->input->post("nama_lengkap"),
                             'kode_buku'         => $this->input->post("kode_buku"),
-                            'tgl_pinjam'         => $this->input->post("tgl_pinjam"),
-                            'tgl_kembali'      => $this->input->post("tgl_kembali")
+                            'tgl_kembali'         => $this->input->post("tgl_kembali")
                         );
                         $this->db->insert("tbl_pinjam", $insert);
                         //deklarasi session flashdata
@@ -209,7 +208,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $key['id_pinjam'] = $id_pinjam;
             //update
             $update = array(
-                'status' => $value
+                'is_kembali' => $value
             );
             //update query
             $this->db->update("tbl_pinjam", $update, $key);

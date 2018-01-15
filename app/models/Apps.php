@@ -193,6 +193,13 @@ class Apps extends CI_Model{
         return $this->db->get_where('tbl_users', $id_user);
     }
 
+    // get ecport data
+     function get_export_data_anggota()
+    {
+        $query = "SELECT * FROM tbl_anggota";
+        return $this->db->query($query);
+    }
+
     /* fungsi peminjaman */
     function count_pinjam()
     {
@@ -494,6 +501,12 @@ class Apps extends CI_Model{
                 return $this->db->get_where('tbl_kategori', $id_kategori);
             }
     
+    /*Fungsi Cetak Formulir*/
+    function detail_cetak_nomor($no_anggota)
+    {
+        $query = $this->db->query("SELECT * FROM tbl_anggota Where no_anggota = '$no_anggota'");
+        return $query;
+    }
         
 
     //fungsi date time

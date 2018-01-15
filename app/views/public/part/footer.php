@@ -18,7 +18,7 @@
                         <div class="widget-title-outer">
                             <h3 class="widget-title">Alamat Desa</h3>
                         </div>
-                        <table id="alamatdesa">
+                        <!-- <table id="alamatdesa">
                             <tr>
                                 <td style='padding: 0 5px;'><strong>Lokasi</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
@@ -33,7 +33,9 @@
                                 <td style='padding: 0 5px;'><strong>Email</strong></td>
                                 <td style='padding: 0 5px;'>:</td>
                                 <td style='padding: 0 5px;'><?php echo systems('email') ?></td>
-                            </tr>								</table>
+                            </tr>
+                        </table> -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.077787502362!2d112.31589281428151!3d-7.4566467755601185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78141b9088739f%3A0x26db8a1627b02ad0!2sKantor+Desa+Podoroto!5e0!3m2!1sid!2sid!4v1511778332599" width="330" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div><!-- end inner -->
                 </div><!-- end widget -->
             </div>

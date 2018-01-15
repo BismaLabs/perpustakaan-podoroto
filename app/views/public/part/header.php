@@ -49,7 +49,7 @@
                     <nav id="primary-navigation" class="site-navigation navbar-collapse collapse" role="navigation">
                         <div class="nav-menu">
                             <ul class="menu">
-                                <li><a href='<?php echo base_url() ?>'>Home</a></li>
+                                <li><a href='<?php echo base_url() ?>'>Beranda</a></li>
                                 <li class="has-child">
                                 <a href="#">Profil</a>
                                     <ul class="sub-menu">
@@ -60,7 +60,7 @@
                                          <?php }} ?>
                                     </ul>
                                 </li>
-                                <li class="has-child"><a href="#">Kategori Buku</a>
+                                <li class="has-child"><a href="#">Katalog buku</a>
                                     <ul class="sub-menu">
                                     <?php if (kategori_header() != NULL) {
                                         foreach(kategori_header() as $hasil) {

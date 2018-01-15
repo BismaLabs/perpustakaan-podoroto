@@ -184,6 +184,31 @@ class Anggota extends CI_Controller
             //check value var type
             if ($type == "add") {
 
+                //Tambah Anggota Tanpa Upload Foto
+                if (empty($_FILES['userfile']['name'])) {
+
+                    $insert = array(
+                        'no_anggota'    => $no_anggota,
+                        'nama_lengkap'  => $this->input->post("nama_lengkap"),
+                        'no_telp'       => $this->input->post("no_telp"),
+                        'jenis_kelamin' => $this->input->post("jenis_kelamin"),
+                        'tempat_lahir'  => $this->input->post("tempat_lahir"),
+                        'tgl_lahir'     => $this->input->post("tgl_lahir"),
+                        'bulan_lahir'   => $this->input->post("bulan_lahir"),
+                        'tahun'         => $this->input->post("tahun"),
+                        'alamat'        => $this->input->post("alamat")
+                    );
+
+                    //Simpan Data
+                    $this->db->insert("tbl_anggota", $insert);
+                    //deklarasi session flashdata
+                    $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+                                                                <i class="fa fa-check"></i> Data Berhasil Disimpan.
+                                                            </div>');
+                    //redirect halaman
+                    redirect('apps/anggota?source=add&utf8=✓');
+                }
+                
                 //config upload
                 $config = array(
                     'upload_path' => realpath('resources/images/anggota/'),
@@ -407,6 +432,42 @@ class Anggota extends CI_Controller
             show_404();
             return FALSE;
         }
+    }
+
+    public function cetak_nomor_anggota($no_anggota)
+    {
+        if($this->apps->apps_id())
+        {
+            //no-anggota
+            $no_anggota = $this->encryption->decode($no_anggota);
+
+            $data = ['no_anggota'      => $no_anggota,
+                        'detail_anggota'    => $this->apps->detail_cetak_nomor($no_anggota)->row_array()];
+            //load the view and saved it into $html variable
+            $html=$this->load->view('apps/layout/anggota/cetak_kartu', $data, true);
+
+            //this the the PDF filename that user will get to download
+            $pdfFilePath = "kartu_anggota.pdf";
+
+            //load mPDF library
+            $this->load->library('pdf');
+
+            $pdf = $this->pdf->cetak_kartu();
+
+            //generate the PDF from the given html
+            $pdf->WriteHTML($html);
+
+            //download it.
+            $pdf->Output($pdfFilePath, "D");
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
+    public function template_formulir()
+    {
+        $this->load->view("apps/layout/ppdb/template_formulir");
     }
 
     public function getnotes($kode_anggota='') {

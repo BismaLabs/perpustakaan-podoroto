@@ -7,6 +7,7 @@
         </h1>
     </section>
         <div class="col-md-12">
+         <?php echo $this->session->flashdata('notif') ?>
             <div class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-calendar-check-o"></i> Data Pinjaman</h3>
@@ -48,22 +49,21 @@
                                      $no = $this->uri->segment(4) + 1;
                                 foreach ($data_pinjam->result() as $hasil):
 
-                                    if ($hasil->status == "0") {
+                                    if ($hasil->is_kembali == "n") {
 
                                         $status = '<span class="badge badge-danger" style="background-color: #ff8412;"><i class="fa fa-circle-o-notch fa-spin"></i> Dipinjam</span>';
 
-                                        $update_status = '<a class="badge badge-primary" style="background-color: #1969bc;" data-toggle="tooltip" data-placement="top"  href="' . base_url() . 'apps/peminjaman/confirm/' . $this->encryption->encode($hasil->id_pinjam) . '/' . $this->encryption->encode('1') . '"><i class="fa fa-check-circle"></i> Update</a>';
+                                        $update_status = '<a class="badge badge-primary" style="background-color: #1969bc;" data-toggle="tooltip" data-placement="top"  href="' . base_url() . 'apps/peminjaman/confirm/' . $this->encryption->encode($hasil->id_pinjam) . '/' . $this->encryption->encode('y') . '"><i class="fa fa-check-circle"></i> Update</a>';
 
                                         $no_test = '';
 
-                                } elseif ($hasil->status == "1") {
+                                } elseif ($hasil->is_kembali == "y") {
 
                                         $status = '<span class="badge badge-success" style="background-color: #358420;"><i class="fa fa-check-circle"></i> Dikembalikan</span>';
 
-                                        $update_status = '<a class="badge badge-primary" style="background-color: #1969bc;" data-toggle="tooltip" data-placement="top"  href="' . base_url() . 'apps/peminjaman/confirm/' . $this->encryption->encode($hasil->id_pinjam) . '/' . $this->encryption->encode('0') . '"><i class="fa fa-ban"></i> Update</a>';
-                                        $no_test = $hasil->status;
-                                }
-                                ?>
+                                       $update_status = '<a class="badge badge-primary" style="background-color: #1969bc; pointer-events: none; cursor: default;" data-toggle="tooltip" data-placement="top" href="' . base_url() . 'apps/peminjaman/confirm/' . $this->encryption->encode($hasil->id_pinjam) . '/' . $this->encryption->encode('n') . '"><i class="fa fa-ban"></i> Update</a>';
+                                                            }
+                                                            ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td class="text-center"> <?php echo $hasil->nama ?></td>
@@ -75,7 +75,7 @@
                                         <td class="text-center"> <?php $date = date_create($hasil->tgl_kembali);
                                             echo date_format($date,"Y/F/d"); ?></td>
                                         <td class="text-center">
-                                             <?php echo $status ?>
+                                             <?php echo $status; ?>
                                         </td>
                                         <td class="text-center">
                                             <a class="badge badge-primary" style="background-color: #060884;" data-toggle="tooltip" data-placement="top" title="Lihat Detail" href="<?php echo base_url() ?>apps/peminjaman/detail/<?php echo $this->encryption->encode($hasil->id_pinjam) ?>"><i class="fa fa-external-link"></i> Detail</a>

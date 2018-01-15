@@ -67,8 +67,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="bulan">Bulan <span class="required"
-                                                                   style="color: red">*</span></label>
+                                    <label for="bulan">Bulan <span class="required"style="color: red">*</span></label>
                                     <select style="" class="form-control" name="bulan_lahir" required>
                                         <option value="">-- Pilih --</option>
                                         <option value="Januari">Januari</option>
@@ -88,9 +87,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="tahun">Tahun <span class="required"
-                                                                   style="color: red">*</span></label>
-                                    <select class="form-control" name="tahun" id="tahun" required>
+                                    <label for="tahun">Tahun <span class="required"style="color: red">*</span></label><select class="form-control" name="tahun" id="tahun" required>
                                      <option value="">-- Pilih --</option>
                                     <?php
                                     for ($i=1960; $i < 2016 ; $i++) { ?>

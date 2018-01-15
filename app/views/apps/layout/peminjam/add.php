@@ -24,7 +24,7 @@
                             <div class="form-group">
                             <input type="hidden" name="type" value="<?php echo $type ?>">
                             <label><i class="fa fa-book margin-r-5"></i> Judul Buku</label>
-                            <input type="text" class="form-control" name="kode_buku" placeholder="Masukan Judul Buku" required>
+                            <input type="text" class="form-control" name="kode_buku" placeholder="Masukkan Judul Buku" required>
                             </div>
                             <hr>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label><i class="fa fa-barcode margin-r-5"></i> Nama Anggota</label>
-                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukan No Anggota" required>
+                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukan Nama Anggota" required>
                             </div>
                             <hr>
                         </div>
@@ -53,19 +53,10 @@
                 <h3 class="box-title"><i class="fa fa-handshake-o"></i> Data Pinjam</h3>
                 <hr>
                 <div class="row" style="padding-top: 10px">
-                    <div class="col-md-6">
-                        <!-- /.box-header -->
-                             <div class="form-group">
-                            <label><i class="fa fa-calendar margin-r-5"></i> Tanggal Pinjam</label>
-                            <input type="date" class="form-control" name="tgl_pinjam" placeholder="Masukan Nama Lengkap" required>
-                            </div>
-                            <hr>
-                        <!-- /.box-body -->
-                    </div>
                         <div class="col-md-6">
                             <div class="form-group">
                             <label><i class="fa fa-calendar margin-r-5"></i> Tanggal Kembali</label>
-                            <input type="date" class="form-control" name="tgl_kembali" placeholder="Masukan No Anggota" required>
+                            <input type="date" class="form-control" name="tgl_kembali" required>
                             </div>
                         </div>
                 </div>
