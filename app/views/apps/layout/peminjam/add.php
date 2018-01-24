@@ -1,3 +1,33 @@
+<script type="text/javascript">
+        $(this).ready( function() {
+            $("#provinsi_id").autocomplete({
+                minLength: 1,
+                source: 
+                function(req, add){
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>autocomplete",
+                        dataType: 'json',
+                        type: 'POST',
+                        data: req,
+                        success:    
+                        function(data){
+                            if(data.response =="true"){
+                                add(data.message);
+                            }
+                        },
+                    });
+                },
+            select: 
+                function(event, ui) {
+                    $("#result").append(
+                        "<li>"+ ui.item.value + "</li>"
+                    );                  
+                },      
+            });
+        });
+</script>
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -23,8 +53,17 @@
                         <!-- /.box-header -->
                             <div class="form-group">
                             <input type="hidden" name="type" value="<?php echo $type ?>">
-                            <label><i class="fa fa-book margin-r-5"></i> Judul Buku</label>
-                            <input type="text" class="form-control" name="kode_buku" placeholder="Masukkan Judul Buku" required>
+                            <label><i class="fa fa-book margin-r-5"></i> Kode Buku</label>
+                            <!-- <input id="basics" style="border-radius: 0px" type="text" class="typeahead form-control" name="kode_buku" placeholder="Masukkan kode Buku" required="required"> -->
+                             <!-- <select class="itemName" style="width: 100%"></select> -->
+
+                             Nama Provinsi :
+        <?php
+            echo form_input('provinsi','','id="provinsi_id"');
+        ?>
+        <ul>
+            <div id="result"></div>
+        </ul>
                             </div>
                             <hr>
                     </div>
@@ -40,7 +79,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label><i class="fa fa-barcode margin-r-5"></i> Nama Anggota</label>
-                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukan Nama Anggota" required>
+                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukan Nama Anggota" required="required">
                             </div>
                             <hr>
                         </div>
@@ -71,3 +110,25 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+// var options = {
+//     data: ["blue", "green", "pink", "red", "yellow"]
+// };
+
+// $("#basics").easyAutocomplete(options);
+
+
+      // $('.itemName').select2({
+      //   ajax: {
+      //     url: 'http://localhost/perpustakaan-podoroto/search/autocomplete',
+      //     dataType: 'json',
+      //     selectFirst: true,
+      //     processResults: function (data) {
+      //       return {
+      //         results: data
+      //       };
+      //     },
+      //   }
+      // });    
+</script>

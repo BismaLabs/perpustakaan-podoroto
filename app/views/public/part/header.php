@@ -72,6 +72,7 @@
                                 </li>
                                 <li><a href="<?php echo base_url() ?>populer/">Populer</a></li>
                                 <li><a href="<?php echo base_url() ?>terbaru/">Terbaru</a></li>
+                                <li><a href="<?php echo base_url() ?>berita/">Berita</a></li>
                             </ul>
                         </div>
                     </nav>

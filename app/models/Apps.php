@@ -454,6 +454,7 @@ class Apps extends CI_Model{
             $query = $this->db->get('tbl_buku');
             return $query->result();
         }
+
     
         function total_search_buku($keyword)
         {
@@ -553,7 +554,17 @@ class Apps extends CI_Model{
                 $id_kategori  =  array('id_kategori'=> $id_kategori);
                 return $this->db->get_where('tbl_kategori', $id_kategori);
             }
-    
+
+    /*AutoComplete*/
+    function lookup($keyword){
+        $this->db->select('*')->from('tbl_buku');
+        $this->db->like('judul_buku',$keyword,'after');
+        $query = $this->db->get();    
+        
+        return $query->result();
+    }
+
+
     /*Fungsi Cetak Formulir*/
     function detail_cetak_nomor($no_anggota)
     {

@@ -5,12 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php echo $title ?> - <?php echo systems('admin_title') ?></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+     <!-- Bootsrap CSS file -->
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/toastr.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/skins/_all-skins.min.css">
-    <![endif]-->
+    <!-- EasyAutocomplete CS -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/plugins/EasyAutocomplete/easy-autocomplete.min.css"> 
+    <!-- Jquery -->
+    <script src="<?php echo base_url() ?>resources/backend/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+    <!-- EasyAutocomplete JS -->
+    <script src="<?php echo base_url() ?>resources/backend/plugins/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script> 
+
+    <!-- Select2 Ajax Autocomplete -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 </head>
 <body class="hold-transition skin-green fixed sidebar-mini">
 <!-- Site wrapper -->

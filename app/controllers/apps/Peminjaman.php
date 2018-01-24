@@ -106,6 +106,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
     }
 
+
+
     public function add()
     {
         if ($this->apps->apps_id()) {

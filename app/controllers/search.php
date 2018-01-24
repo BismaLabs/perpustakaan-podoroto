@@ -56,5 +56,23 @@ class Search extends CI_Controller
             redirect('search/');
         }
     }
+
+    // public function autocomplete()
+    // {
+    //     $json = [];
+
+
+    //     $this->load->database();
+
+        
+    //     if(!empty($this->input->get("q"))){
+    //         $this->db->like('kode_buku', $this->input->get("q"));
+    //         $query = $this->db->select('kode_buku,judul_buku as text')
+    //                     ->limit(10)
+    //                     ->get("tbl_buku");
+    //         $json = $query->result();
+    //     }
+    //     echo json_encode($json);
+    // }
 }
 ?>

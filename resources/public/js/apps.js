@@ -26,3 +26,21 @@ var buku = function(page){
         }
     });
 };
+
+var berita = function(page){
+    $("#loader").show();
+    $("#load_more_berita").show();
+    $.ajax({
+        url: BASE_URL+"home/get_berita",
+        type:'GET',
+        data: {page:page}
+    }).done(function(response){
+        $("#berita").append(response);
+        $("#loader").hide();
+        $('#load_more_berita').data('val', ($('#load_more_berita').data('val')+1));
+        //scroll();
+        if(response == ""){
+            $("#load_more_berita").hide();
+        }
+    });
+};

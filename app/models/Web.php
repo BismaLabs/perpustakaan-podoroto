@@ -166,4 +166,37 @@ class Web extends CI_Model{
             return NULL;
         }
     }
+
+    /*Counter Pengunjung*/
+    public function counter_visitor()
+    {
+        setcookie("pengunjung", "sudah berkunjung", time()+60*60*24);
+        if (!isset($_COOKIE["pengunjung"])) {
+            $d_in['ip_address'] = $_SERVER['REMOTE_ADDR'];
+            $d_in['date_visit'] = date("Y-m-d H:i:s");
+            $this->db->insert("tbl_counter",$d_in);
+        }
+    }
+
+    /*Berita*/
+     function get_berita_terbaru()
+    {
+        $this->db->order_by('id_berita DESC');
+        $this->db->limit(8, 0);
+        return $this->db->get('tbl_berita');
+    }
+
+    //get detail berita
+    function detail_berita($url)
+    {
+        $query = $this->db->query("SELECT a.id_berita, a.user_id, a.judul_berita, a.slug, a.isi_berita, a.gambar, a.views, a.keywords, a.descriptions, a.created_at, b.id_user, b.nama_user FROM tbl_berita as a JOIN tbl_users as b ON a.user_id = b.id_user WHERE a.slug = '$url'");
+
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
 }
