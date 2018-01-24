@@ -37,7 +37,7 @@
             <li <?php if(isset($berita)) {
                 echo 'class="active"';} ?>><a href="<?php echo base_url() ?>apps/berita/"> <i class="fa fa-book"></i> Berita</a>
             </li>
-            <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/ussers/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
+            <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/users/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
             <li <?php if(isset($pages)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/pages/"><i class="fa fa-television"></i> <span>Pages</span></a></li>
             <li class="header">MAIN SETTING</li>
             <li <?php if(isset($settings)) { echo 'class="active treeview"'; } ?>>

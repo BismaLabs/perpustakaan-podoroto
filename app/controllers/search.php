@@ -2,7 +2,7 @@
 /**
 * 
 */
-class Search extends CI_Controller
+class search extends CI_Controller
 {
     
     function __construct()

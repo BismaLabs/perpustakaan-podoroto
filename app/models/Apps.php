@@ -62,10 +62,9 @@ class Apps extends CI_Model{
     }
     public function search_index_berita($keyword, $limit, $offset)
     {
-        $query = $this->db->select('a.id_berita, a.judul_berita, a.slug, a.user_id, a.kategori_id, a.created_at, a.updated_at, b.id_user, b.nama_user, c.id_kategori, c.nama_kategori')
+        $query = $this->db->select('a.id_berita, a.judul_berita, a.slug, a.user_id, a.kategori_id, a.created_at, a.updated_at, b.id_user, b.nama_user')
             ->from('tbl_berita a')
             ->join('tbl_users b', 'a.user_id = b.id_user')
-            ->join('tbl_kategori c', 'a.kategori_id = c.id_kategori')
             ->limit($limit, $offset)
             ->like('a.judul_berita', $keyword)
             ->limit($limit, $offset)
@@ -291,7 +290,6 @@ class Apps extends CI_Model{
             ->from('tbl_pinjam')
             ->limit($limit,$offset)
             ->like('nama',$keyword)
-            ->or_like('kode_anggota', $keyword)
             ->limit($limit,$offset)
             ->order_by('id_pinjam','DESC')
             ->get();

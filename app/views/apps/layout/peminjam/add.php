@@ -1,33 +1,3 @@
-<script type="text/javascript">
-        $(this).ready( function() {
-            $("#provinsi_id").autocomplete({
-                minLength: 1,
-                source: 
-                function(req, add){
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>autocomplete",
-                        dataType: 'json',
-                        type: 'POST',
-                        data: req,
-                        success:    
-                        function(data){
-                            if(data.response =="true"){
-                                add(data.message);
-                            }
-                        },
-                    });
-                },
-            select: 
-                function(event, ui) {
-                    $("#result").append(
-                        "<li>"+ ui.item.value + "</li>"
-                    );                  
-                },      
-            });
-        });
-</script>
-
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -54,16 +24,8 @@
                             <div class="form-group">
                             <input type="hidden" name="type" value="<?php echo $type ?>">
                             <label><i class="fa fa-book margin-r-5"></i> Kode Buku</label>
-                            <!-- <input id="basics" style="border-radius: 0px" type="text" class="typeahead form-control" name="kode_buku" placeholder="Masukkan kode Buku" required="required"> -->
+                            <input id="basics" style="border-radius: 0px" type="text" class="typeahead form-control" name="kode_buku" placeholder="Masukkan kode Buku" required="required">
                              <!-- <select class="itemName" style="width: 100%"></select> -->
-
-                             Nama Provinsi :
-        <?php
-            echo form_input('provinsi','','id="provinsi_id"');
-        ?>
-        <ul>
-            <div id="result"></div>
-        </ul>
                             </div>
                             <hr>
                     </div>

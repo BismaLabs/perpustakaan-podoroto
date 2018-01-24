@@ -5,7 +5,7 @@
             <div class="col-md-12" style="margin-bottom: 20px">
                 <?php echo $this->session->flashdata('notif') ?>
                 <div class="search-events" style="text-align: center">
-                    <form method="GET" action="<?php echo base_url('search/berita/');?>" style="margin-top: 10px">
+                    <form method="GET" action="<?php echo base_url('berita/search');?>" style="margin-top: 10px">
                         <div class = "input-group">
                             <input type = "text" name = "q" class = "form-control input-lg" placeholder="Masukkan Judul Berita dan Enter" autocomplete="off" id="articles" minlength="3" required>
                             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">

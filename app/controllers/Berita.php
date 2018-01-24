@@ -38,15 +38,15 @@ class Berita extends CI_Controller
 	public function detail($url)
     {
         //library disqus
-        //$this->load->library('disqus');
+        $this->load->library('disqus');
 
         $data = array(
             'detail_berita'    => $this->web->detail_berita($url),
             'title'            => $this->web->detail_berita($url)->judul_berita .' - ' .systems('site_title'),
             'keywords'         => $this->web->detail_berita($url)->keywords,
             'descriptions'     => $this->web->detail_berita($url)->descriptions,
-            'author'           => $this->web->detail_berita($url)->nama_user
-            // 'disqus'           => $this->disqus->get_html()
+            'author'           => $this->web->detail_berita($url)->nama_user,
+             'disqus'           => $this->disqus->get_html()
         );
         //get id
         $id = $this->web->detail_berita($url)->id_berita;
@@ -63,6 +63,51 @@ class Berita extends CI_Controller
         $this->load->view('public/part/header', $data);
         $this->load->view('public/layout/berita/detail');
         $this->load->view('public/part/footer');
+    }
+
+    public function search()
+    {
+        $limit = 12;
+        $this->load->helper('security');
+        $keyword = $this->security->xss_clean($_GET['q']);
+        $data['keyword'] = strip_tags($keyword);
+        $check = strlen(preg_replace('/[^a-zA-Z]/', '', $keyword));
+        if(!empty($keyword) && $check > 2)
+        {
+            $offset = (isset($_GET['page'])) ? $this->security->xss_clean($_GET['page']) : 0 ;
+            $total  = $this->web->total_search_berita($keyword);
+            //config pagination
+            $config['base_url'] = base_url().'berita/search?q='.$keyword;
+            $config['total_rows'] = $total;
+            $config['per_page'] = $limit;
+            $config['page_query_string'] = TRUE;
+            $config['use_page_numbers'] = TRUE;
+            $config['display_pages']    = TRUE;
+            $config['query_string_segment'] = 'page';
+            $config['uri_segment']  = 3;
+            //instalasi paging
+            $this->pagination->initialize($config);
+
+            $data = array(
+                'title'         => 'Search Berita' .' - ' .systems('site_title'),
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
+                'data_berita'   => $this->web->search_index_berita(strip_tags($keyword),$limit,$offset),
+                'paging'        => $this->pagination->create_links()
+            );
+            if($data['data_berita'] != NULL)
+            {
+                $data['berita'] = $data['data_berita'];
+            }else{
+                $data['berita'] = '';
+            }
+            //load view with data
+            $this->load->view('public/part/header', $data);
+            $this->load->view('public/layout/berita/search');
+            $this->load->view('public/part/footer');
+        }else{
+            redirect('berita/');
+        }
     }
 }
  ?>

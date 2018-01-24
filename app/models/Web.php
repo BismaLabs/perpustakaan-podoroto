@@ -199,4 +199,37 @@ class Web extends CI_Model{
             return NULL;
         }
     }
+
+     //total search berita
+    function total_search_berita($keyword)
+    {
+        $query = $this->db->like('judul_berita',$keyword)->get('tbl_berita');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_berita($keyword, $limit, $offset)
+    {
+        $query = $this->db->select('a.id_berita, a.judul_berita, a.slug, a.user_id, a.kategori_id, a.created_at, a.updated_at, b.id_user, b.nama_user')
+            ->from('tbl_berita a')
+            ->join('tbl_users b', 'a.user_id = b.id_user')
+            ->limit($limit, $offset)
+            ->like('a.judul_berita', $keyword)
+            ->limit($limit, $offset)
+            ->order_by('a.id_berita', 'DESC')
+            ->get();
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return NULL;
+        }
+    }
 }

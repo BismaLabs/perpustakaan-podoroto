@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'form', 'systems', 'mails','kategori_header');
+$autoload['helper'] = array('url', 'form', 'systems', 'mails','kategori_header','berita_sidebar');
 
 /*
 | -------------------------------------------------------------------
