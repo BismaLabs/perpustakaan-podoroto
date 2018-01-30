@@ -11,17 +11,11 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/toastr.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/skins/_all-skins.min.css">
-    <!-- EasyAutocomplete CS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/plugins/EasyAutocomplete/easy-autocomplete.min.css"> 
     <!-- Jquery -->
     <script src="<?php echo base_url() ?>resources/backend/plugins/jQuery/jquery-2.2.3.min.js"></script>
-
-    <!-- EasyAutocomplete JS -->
-    <script src="<?php echo base_url() ?>resources/backend/plugins/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script> 
-
-    <!-- Select2 Ajax Autocomplete -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <!-- Autocomplete JS -->
+    <link src="<?php echo base_url() ?>resources/backend/plugins/jquery-ui/jquery-ui.css"></link>
+    <script src="<?php echo base_url() ?>resources/backend/plugins/jquery-ui/jquery-ui.js"></script>
 
 </head>
 <body class="hold-transition skin-green fixed sidebar-mini">

@@ -1,3 +1,4 @@
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -24,8 +25,7 @@
                             <div class="form-group">
                             <input type="hidden" name="type" value="<?php echo $type ?>">
                             <label><i class="fa fa-book margin-r-5"></i> Kode Buku</label>
-                            <input id="basics" style="border-radius: 0px" type="text" class="typeahead form-control" name="kode_buku" placeholder="Masukkan kode Buku" required="required">
-                             <!-- <select class="itemName" style="width: 100%"></select> -->
+                            <input id="username" style="border-radius: 0px" type="text" class="typeahead form-control" name="kode_buku" placeholder="Masukkan Kode Buku" required="required">
                             </div>
                             <hr>
                     </div>
@@ -41,14 +41,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label><i class="fa fa-barcode margin-r-5"></i> Nama Anggota</label>
-                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukan Nama Anggota" required="required">
+                            <input id="anggota" type="text" class="form-control" name="nama_lengkap" placeholder="Masukan Nama Anggota" required="required">
                             </div>
                             <hr>
                         </div>
                 </div>
             </div>
         </div>
-
+        
         <div class="col-md-4">
              <div class="box-header with-border">
                 <h3 class="box-title"><i class="fa fa-handshake-o"></i> Data Pinjam</h3>
@@ -57,7 +57,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label><i class="fa fa-calendar margin-r-5"></i> Tanggal Kembali</label>
-                            <input type="date" class="form-control" name="tgl_kembali" required>
+                            <input type="hidden" class="form-control" name="tgl_pinjam" value="<?php echo $today = date("Y-m-d");?>">
+                            <input type="date" class="form-control" name="tgl_kembali" required="required">
                             </div>
                         </div>
                 </div>
@@ -72,25 +73,35 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
-// var options = {
-//     data: ["blue", "green", "pink", "red", "yellow"]
-// };
 
-// $("#basics").easyAutocomplete(options);
+          $( "#username" ).autocomplete({ //the recipient text field with id #username
+          source: function( request, response ) {
+            $.ajax({
+                url: "<?php echo site_url('apps//Peminjaman/search_buku'); ?>",
+                dataType: "json",
+                data: request,
+                success: function(data){
+                    if(data.response == 'true') {
+                       response(data.message);
+                    }
+                }
+            });
+        }
+    });
 
-
-      // $('.itemName').select2({
-      //   ajax: {
-      //     url: 'http://localhost/perpustakaan-podoroto/search/autocomplete',
-      //     dataType: 'json',
-      //     selectFirst: true,
-      //     processResults: function (data) {
-      //       return {
-      //         results: data
-      //       };
-      //     },
-      //   }
-      // });    
+$( "#anggota" ).autocomplete({ //the recipient text field with id #anggota
+          source: function( request, response ) {
+            $.ajax({
+                url: "<?php echo site_url('apps//Peminjaman/search_anggota'); ?>",
+                dataType: "json",
+                data: request,
+                success: function(data){
+                    if(data.response == 'true') {
+                       response(data.message);
+                    }
+                }
+            });
+        }
+    });  
 </script>

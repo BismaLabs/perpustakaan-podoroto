@@ -248,8 +248,28 @@ class Apps extends CI_Model{
     // get ecport data
      function get_export_data_anggota()
     {
-        $query = "SELECT * FROM tbl_anggota";
-        return $this->db->query($query);
+        $query = $this->db->get('tbl_anggota');
+        return $query->result_array();
+    }
+
+    // get ecport data
+     function get_export_data_buku()
+    {
+        $query = $this->db->get('tbl_buku');
+        return $query->result_array();
+    }
+
+    // get ecport data
+    function get_export_data_pinjam($tgl_awal, $tgl_akhir)
+    {
+      /* $query = "SELECT nama_anggota, buku_kode,id_pinjam,tgl_pinjam,tgl_kembali,is_kembali FROM tbl_pinjam WHERE tgl_pinjam BETWEEN '$tgl_awal' AND '$tgl_akhir'";
+        return $this->db->query($query)->result_array();*/
+
+        $this->db->select('nama_anggota, buku_kode, id_pinjam, tgl_pinjam, tgl_kembali, is_kembali');
+        $this->db->from('tbl_pinjam');
+        $this->db->where('tgl_pinjam >=',$tgl_awal);
+        $this->db->where('tgl_pinjam <=',$tgl_akhir);
+        return $this->db->get()->result_array();
     }
 
     /* fungsi peminjaman */
@@ -433,7 +453,20 @@ class Apps extends CI_Model{
         function count_buku()
         {
             return $this->db->get('tbl_buku');
-        }   
+        }
+
+        function update_jml_buku($kode_buku)
+        {
+            $query = $this->db->query("SELECT a.kode_buku, a.judul_buku, a.jumlah_buku, b.buku_kode FROM tbl_buku as a JOIN tbl_pinjam as b ON a.kode_buku = b.buku_kode WHERE a.kode_buku = '$kode_buku'");
+
+            if($query->num_rows() > 0)
+            {
+                return $query->row();
+            }else
+            {
+                return NULL;
+            }
+        }
 
         function select_kategori()
         {
@@ -554,13 +587,7 @@ class Apps extends CI_Model{
             }
 
     /*AutoComplete*/
-    function lookup($keyword){
-        $this->db->select('*')->from('tbl_buku');
-        $this->db->like('judul_buku',$keyword,'after');
-        $query = $this->db->get();    
-        
-        return $query->result();
-    }
+    
 
 
     /*Fungsi Cetak Formulir*/
