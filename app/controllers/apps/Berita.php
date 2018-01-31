@@ -124,6 +124,30 @@ class Berita extends CI_Controller
 		}
 	}
 
+    public function edit($id_berita)
+    {
+        if ($this->apps->apps_id()) {
+            //get id
+            $id_berita = $this->encryption->decode($this->uri->segment(4));
+            //create data array
+            $data = array(
+                'title' => 'Edit Berita',
+                'berita' => TRUE,
+                'type' => 'edit',
+                'data_berita' => $this->apps->edit_berita($id_berita)->row_array(),
+                'select_kat' => $this->apps->select_kategori()
+            );
+            //load view with data
+            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/sidebar');
+            $this->load->view('apps/layout/berita/edit');
+            $this->load->view('apps/part/footer');
+        } else {
+            show_404();
+            return FALSE;
+        }
+    }
+
 	public function save()
 	{
 		if ($this->apps->apps_id()) {

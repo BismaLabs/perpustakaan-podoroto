@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <link rel="icon" href=""/>
+    <link rel="icon" href="<?php echo base_url() ?>resources/images/favicon.png"/>
     <title><?php echo $title ?></title>
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>resources/public/css/rajdhani.css" rel='stylesheet' type='text/css'>
@@ -77,7 +77,7 @@
                         </div>
                     </nav>
                     <div class="appoinment-header">
-                        <a href="#" class="btn btn-md btn-default">Website Desa</a>
+                        <a href="https://www.podoroto.desa.id/" target="_blank" class="btn btn-md btn-default">Website Desa</a>
                     </div>
                 </div>
             </div>

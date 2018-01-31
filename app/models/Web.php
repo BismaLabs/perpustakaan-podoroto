@@ -119,16 +119,10 @@ class Web extends CI_Model{
 
     function select_buku_populer()
     {
-        // $query = $this->db->query("SELECT * FROM tbl_buku WHERE views > 50");
-        $query = $this->db->select('*')->where('views > ', '0' )->limit(4)->get('tbl_buku');
-
-        if($query->num_rows() > 0)
-        {
-            return $query->row();
-        }else
-        {
-            return NULL;
-        }
+        $this->db->select('*');
+        $this->db->from('tbl_buku');
+        $this->db->where('views >=',50);
+        return $this->db->get();
     }
 
     //index search buku

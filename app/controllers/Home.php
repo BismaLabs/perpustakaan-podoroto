@@ -46,9 +46,9 @@ class Home extends CI_Controller
     {
         $data = array(
             'title'         => systems('site_title'),
-            'data_buku'     => $this->web->select_buku(),
-            'data_kategori' => $this->web->select_kategori(),
-            'buku_populer'  => $this->web->select_buku_populer(),
+            //'data_buku'     => $this->web->select_buku(),
+            //'data_kategori' => $this->web->select_kategori(),
+            'data_buku'  => $this->web->select_buku_populer(),
             'data_slide'    => $this->web->select_slider(),
             'title_page'    => 'Buku Terpopuler'
         );
