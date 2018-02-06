@@ -61,11 +61,12 @@ function search_buku()
 {
 $username = trim($this->input->get('term', TRUE)); //get term parameter sent via text field. Not sure how secure get() is
 
-$this->db->select('kode_buku');
-$this->db->from('tbl_buku');
-$this->db->like('kode_buku',$username);
-$this->db->limit('5');
-$query = $this->db->get();
+$query = $this->db->select('*')
+            ->from('tbl_buku')
+            ->like('judul_buku',$username)
+            ->or_like('kode_buku', $username)
+            ->limit('5')
+            ->get();
 
 if ($query->num_rows() > 0)
 {
@@ -75,7 +76,8 @@ $data['message'] = array();
 foreach ($query->result() as $row)
 {
 $data['message'] = array(
-    'kode_buku' => $row->kode_buku
+    'kode_buku' => $row->kode_buku,
+    'judul_buku' => $row->judul_buku
 );
 }
 }
@@ -91,11 +93,18 @@ function search_anggota()
 {
 $anggota = trim($this->input->get('term', TRUE)); //get term parameter sent via text field. Not sure how secure get() is
 
-$this->db->select('nama_lengkap');
+/*$this->db->select('nama_lengkap');
 $this->db->from('tbl_anggota');
 $this->db->like('nama_lengkap', $anggota);
 $this->db->limit('5');
-$query = $this->db->get();
+$query = $this->db->get();*/
+
+$query = $this->db->select('*')
+            ->from('tbl_anggota')
+            ->like('nama_lengkap',$anggota)
+            ->or_like('no_anggota', $anggota)
+            ->limit('5')
+            ->get();
 
 if ($query->num_rows() > 0)
 {
@@ -105,7 +114,8 @@ $data['message'] = array();
 foreach ($query->result() as $row)
 {
 $data['message'] = array(
-    'nama_lengkap' => $row->nama_lengkap
+    'nama_lengkap' => $row->nama_lengkap,
+    'no_anggota' => $row->no_anggota
 );
 }
 }

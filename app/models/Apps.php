@@ -586,10 +586,6 @@ class Apps extends CI_Model{
                 return $this->db->get_where('tbl_kategori', $id_kategori);
             }
 
-    /*AutoComplete*/
-    
-
-
     /*Fungsi Cetak Formulir*/
     function detail_cetak_nomor($no_anggota)
     {
