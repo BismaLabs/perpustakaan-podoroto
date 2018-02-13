@@ -1,7 +1,8 @@
 /**
- * @package : ajax validation form
- * @author  : Fika Ridaul maulayya
- * @since   : 2017
+ * @package  : Perpustakaan Podoroto.
+ * @author   : bismalabs <bismalabs@gmail.com>
+ * @since    : 2017
+ * @license  : https://bismalabs.com/portofolio/perpustakaan.podoroto.desa.id/
  */
 
 //ajax validation form add articles

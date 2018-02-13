@@ -1,11 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* @package      Website MA-IHSANNIAT
-* @version      0.1.2
-* @author       Fika Ridaul Maulayya
-* @copyright    Copyright © 2015 Pondok Kode - Web Project Development.
-* @link         http://pondokkode.com
-*/
+ * @package  : Perpustakaan Podoroto.
+ * @author   : bismalabs <bismalabs@gmail.com>
+ * @since    : 2017
+ * @license  : https://bismalabs.com/portofolio/perpustakaan.podoroto.desa.id/
+ */
 class Encryption {
 
 var $skey = "PONDOKKODE123456";

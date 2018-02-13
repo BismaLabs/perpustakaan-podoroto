@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @package  : PPDB Web Application.
- * @author   : Fika Ridaul Maulayya <ridaulmaulayya@gmail.com>
+ * @package  : Perpustakaan Podoroto.
+ * @author   : bismalabs <bismalabs@gmail.com>
  * @since    : 2017
- * @license  : https://maulayya.com/portofolio/ppdb-muallimin-muallimat/
+ * @license  : https://bismalabs.com/portofolio/perpustakaan.podoroto.desa.id/
  */
 
 class Pdf {

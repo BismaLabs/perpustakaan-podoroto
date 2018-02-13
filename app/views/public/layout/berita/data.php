@@ -20,7 +20,6 @@
             </div>
             <div id="berita">
                 <?php
-
             foreach($data_berita->result() as $hasil){
             //check lenght title
             if(strlen($hasil->judul_berita)<40)

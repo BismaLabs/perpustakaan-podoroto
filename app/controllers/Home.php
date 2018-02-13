@@ -18,6 +18,7 @@ class Home extends CI_Controller
             'data_kategori' => $this->web->select_kategori(),
             'buku_populer'  => $this->web->select_buku_populer(),
             'data_slide'    => $this->web->select_slider(),
+            'data_berita'   => $this->web->get_berita_terbaru(),
             'title_page'    => 'Buku Tersedia'
         );
         

@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @package  : Perpustakaan Podoroto
- * @author   : Fika Ridaul Maulayya <ridaulmaulayya@gmail.com>
+ * @package  : Perpustakaan Podorotobismalabs <bismalabs@gmail.com>Fika Ridaul bismalabs <ridaulbismalabs@gmail.com>
  * @since    : 2017
  * @license  : https://bismalabs.co.id/portofolio/perpustakaan-podoroto/
  */

@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * @package  : PPDB Web Application.
- * @author   : Fika Ridaul Maulayya <ridaulmaulayya@gmail.com>
+ * @author   : bismalabs <bismalabs@gmail.com>
  * @since    : 2017
- * @license  : https://maulayya.com/portofolio/ppdb-muallimin-muallimat/
+ * @license  : https://bismalabs.com/portofolio/ppdb-muallimin-muallimat/
  */
 class Users extends CI_Controller
 {

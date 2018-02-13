@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @package  : Perpustakaan Podoroto
- * @author   : Fika Ridaul Maulayya <ridaulmaulayya@gmail.com>
+ * @package  : Perpustakaan Podoroto.
+ * @author   : bismalabs <bismalabs@gmail.com>
  * @since    : 2017
- * @license  : https://bismalabs.co.id/portofolio/perpustakaan-podoroto/
+ * @license  : https://bismalabs.com/portofolio/perpustakaan.podoroto.desa.id/
  */
 class Apps extends CI_Model{
 

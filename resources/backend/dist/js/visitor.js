@@ -1,5 +1,5 @@
 // deklarasi path url host
-var url = "http://localhost/~maulayyacyber/perpustakaan-podoroto/apps/";
+var url = "http://www.perpustakaan-podoroto.ezyro.com/apps/dashboard";
 
 // Get data chart
 function GetToday(tgl)
@@ -77,7 +77,7 @@ function show_chart(text, kat, total)
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: http://www.perpustakaan.podoroto.desa.id',
+            text: 'Source: http://www.perpustakaan-podoroto.ezyro.com/',
             x: -20
         },
         xAxis: {

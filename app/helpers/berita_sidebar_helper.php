@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * @package  : Medical Top Team.
- * @author   : Fika Ridaul Maulayya <ridaulmaulayya@gmail.com>
+ * @author   : bismalabs <bismalabs@gmail.com>
  * @since    : 2017
- * @license  : https://maulayya.com/portofolio/medical-top-team/
+ * @license  : https://bismalabs.com/portofolio/medical-top-team/
  */
 if(!function_exists('berita_sidebar'))
 {
